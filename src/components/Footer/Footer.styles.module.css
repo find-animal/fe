@@ -1,0 +1,12 @@
+.container {
+  background-color: var(--color-white);
+  padding: 16px 26px 26px 26px;
+  border-top: 1px solid var(--color-divider);
+}
+.container img {
+  cursor: pointer;
+  margin-right: 34px;
+}
+.container img:nth-child(5) {
+  margin-right: 0;
+}
