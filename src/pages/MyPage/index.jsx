@@ -1,11 +1,8 @@
 import React from "react";
 import styles from "./index.styles.module.css";
-import Footer from "../../components/Footer/Footer";
 import UserInfo from "./_components/UserInfo/UserInfo";
 import Bell from "../../components/Bell/Bell";
 import MyPageList from "./_components/MyPageList/MyPageList";
-import { Outlet } from "react-router-dom";
-import MyPageRoutes from "../../routes/MyPageRoutes";
 
 export default function MyPage() {
   const mypageLists = [
@@ -30,9 +27,6 @@ export default function MyPage() {
           />
         ))}
       </ul>
-      <Outlet />
-      <Footer />
-      <MyPageRoutes />
     </div>
   );
 }
