@@ -5,7 +5,7 @@ module.exports = function (app) {
     "/api/animals",
     createProxyMiddleware({
       target:
-        "https://port-0-be-find-animal-rccln2llw7kdy6q.sel5.cloudtype.app",
+        "${baseUrl}",
       changeOrigin: true,
     })
   );
