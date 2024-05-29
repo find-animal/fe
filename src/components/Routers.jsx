@@ -8,11 +8,13 @@ import LogOut from "../pages/MyPage/LogOut/LogOut";
 import AccountDeletion from "../pages/MyPage/AccountDeletion/AccountDeletion";
 import TermOfService from "../pages/MyPage/TermsOfService/TermOfService";
 import Layout from "./Layout";
+import Home from "../pages/Home";
 
 export default function Routers() {
   return (
     <Routes>
       <Route element={<Layout />}>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/mypage" element={<MyPage />}></Route>
         <Route path="/mypage/change-password" element={<ChangePwd />} />
         <Route path="/mypage/setting" element={<Setting />} />

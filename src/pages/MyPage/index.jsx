@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./index.styles.module.css";
-import UserInfo from "./_components/UserInfo/UserInfo";
-import Bell from "../../components/Bell/Bell";
 import MyPageList from "./_components/MyPageList/MyPageList";
+import icon_bell from "../../assets/icon_bell.png";
+import Header from "../../components/Header/Header";
 
 export default function MyPage() {
   const mypageLists = [
@@ -16,8 +16,7 @@ export default function MyPage() {
 
   return (
     <div className={styles.container}>
-      <Bell />
-      <UserInfo />
+      <Header title={'아이디'} img={icon_bell}/>
       <ul className={styles.list_container}>
         {mypageLists.map((mypageList, index) => (
           <MyPageList

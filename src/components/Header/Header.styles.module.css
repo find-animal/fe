@@ -1,0 +1,20 @@
+.title {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white);
+  padding: 68px 0 24px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.title > p {
+  font-weight: 600;
+  font-size: 30px;
+  color: var(--color-black);
+}
+.image {
+  width: 26px;
+  height: 28px;
+  position:absolute;
+  right: 24px;
+}

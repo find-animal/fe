@@ -24,7 +24,7 @@ export default function Footer() {
     }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.footer}>
       {icons.map((icon, index) => (
         <img
           key={index}

@@ -1,12 +1,14 @@
-.container {
+.footer {
+  width: 100%;
   background-color: var(--color-white);
-  padding: 16px 26px 26px 26px;
+  padding: 16px 0 26px 0;
   border-top: 1px solid var(--color-divider);
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
 }
 .container img {
+  align-items: center;
   cursor: pointer;
-  margin-right: 34px;
-}
-.container img:nth-child(5) {
-  margin-right: 0;
 }
