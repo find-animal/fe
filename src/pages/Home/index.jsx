@@ -8,14 +8,15 @@ import { useInView } from "react-intersection-observer";
 
 export default function Home() {
   const [dogList, setDogList] = useState([]);
+  const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   const [ref, inView] = useInView();
 
   const fetchData = async () => {
     try {
-      const res = await axios.get("/api/animals");
-      setDogList([...dogList, ...res.data]);
+      const res = await axios.get(`/api/animals?page=${page}`);
+      setDogList([...dogList, ...res.data.content]);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -27,8 +28,10 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    fetchData();
-  }, [inView]);
+    if(inView) {
+      fetchData(); 
+      setPage((prev)=> prev + 1);
+  }}, [inView]);
 
   return (
     <div>
@@ -43,6 +46,7 @@ export default function Home() {
                 img={list.fileName}
                 animalBreed={list.animalBreed}
                 age={list.age}
+                sex={list.sex}
               />
             </div>
           );
