@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 24px;
+}
+.container > img {
+  width: 50px;
+  height: 43.75px;
+  margin-right: 24px;
+}
+
+.title {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.contents {
+    font-size: 14px;
+}
+.contents span {
+    font-weight: 600;
+}

@@ -2,21 +2,22 @@ import React, { useEffect, useState } from "react";
 import icon_bell_accent from "../../assets/icon_bell_accent.png";
 import Header from "../../components/Header/Header";
 import styles from "./index.styles.module.css";
-import DogInfo from "./_components/DogInfo/DogInfo";
+import AnimalInfo from "./_components/AnimalInfo/AnimalInfo";
 import axios from "axios";
 import { useInView } from "react-intersection-observer";
 
 export default function Home() {
-  const [dogList, setDogList] = useState([]);
+  const [animalList, setAnimalList] = useState([]);
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const todayDate = new Date();
 
   const [ref, inView] = useInView();
 
-  const fetchData = async () => {
+  const fetchAnimalData = async () => {
     try {
       const res = await axios.get(`/api/animals?page=${page}`);
-      setDogList([...dogList, ...res.data.content]);
+      setAnimalList([...animalList, ...res.data.content]);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -24,29 +25,33 @@ export default function Home() {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchAnimalData();
   }, []);
 
   useEffect(() => {
-    if(inView) {
-      fetchData(); 
-      setPage((prev)=> prev + 1);
-  }}, [inView]);
+    if (inView) {
+      fetchAnimalData();
+      setPage((prev) => prev + 1);
+    }
+  }, [inView]);
 
   return (
     <div>
       <Header title={"find-animal"} img={icon_bell_accent} />
       <p className={styles.box}>관심보호소를 등록해주세요</p>
       <div className={styles.list_container}>
-      {isLoading && <p>Loading...</p>}
-        {dogList.map((list) => {
+        {isLoading && <p>Loading...</p>}
+        {animalList.map((list) => {
           return (
             <div key={list.id}>
-              <DogInfo
+              <AnimalInfo
+                id={list.id}
                 img={list.fileName}
                 animalBreed={list.animalBreed}
-                age={list.age}
+                age={list.age.substring(0, 4)}
                 sex={list.sex}
+                uploadDate={list.noticeSdt}
+                todayDate={todayDate}
               />
             </div>
           );

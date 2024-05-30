@@ -11,17 +11,37 @@ import icon_home_clicked from "../../assets/icon_home_clicked.png";
 import icon_book_clicked from "../../assets/icon_book_clicked.png";
 import icon_profile_clicked from "../../assets/icon_profile_clicked.png";
 export default function Footer() {
-    const icons = [
-        { src: icon_shelter, clicked_src: icon_shelter_clicked, alt: "shelter", link: "/shelter" },
-        { src: icon_animal, clicked_src: icon_animal_clicked,alt: "animal", link: "/animal" },
-        { src: icon_home, clicked_src: icon_home_clicked,alt: "home", link: "/home" },
-        { src: icon_book, clicked_src: icon_book_clicked,alt: "book", link: "" },
-        { src: icon_profile, clicked_src: icon_profile_clicked,alt: "profile", link: "/mypage" }
-      ];
-      const [clickedIcon, setClickedIcon] = useState(null);
-    const handleIconClick = (index) => {
-        setClickedIcon(index);
-    }
+  const icons = [
+    {
+      src: icon_shelter,
+      clicked_src: icon_shelter_clicked,
+      alt: "shelter",
+      link: "/shelter",
+    },
+    {
+      src: icon_animal,
+      clicked_src: icon_animal_clicked,
+      alt: "animal",
+      link: "/animal",
+    },
+    {
+      src: icon_home,
+      clicked_src: icon_home_clicked,
+      alt: "home",
+      link: "/home",
+    },
+    { src: icon_book, clicked_src: icon_book_clicked, alt: "book", link: "" },
+    {
+      src: icon_profile,
+      clicked_src: icon_profile_clicked,
+      alt: "profile",
+      link: "/mypage",
+    },
+  ];
+  const [clickedIcon, setClickedIcon] = useState(null);
+  const handleIconClick = (index) => {
+    setClickedIcon(index);
+  };
 
   return (
     <div className={styles.footer}>

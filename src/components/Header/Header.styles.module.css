@@ -1,7 +1,6 @@
 .title {
   display: flex;
   align-items: center;
-  background-color: var(--color-white);
   padding: 68px 0 24px 0;
   display: flex;
   justify-content: center;
