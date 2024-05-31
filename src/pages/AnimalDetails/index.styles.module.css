@@ -1,0 +1,10 @@
+.content_container {
+    height: calc(100vh - 87.5px);
+    padding: 83px 24px 0 24px;
+}
+
+.special_mark {
+    text-align: center;
+    font-weight: 600;
+    margin: 0 32px 32px 32px;
+}

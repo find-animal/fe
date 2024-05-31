@@ -30,7 +30,9 @@ export default function AnimalDetails() {
     <div className={styles.container}>
       <AnimalHeader image={animalDetails.popFile} />
       <div className={styles.content_container}>
+        <p className={styles.special_mark}>{animalDetails.specialMark}</p>
         <AnimalContents
+          specialMark={`"${animalDetails.specialMark}"`}
           animalBreed={animalDetails.animalBreed}
           age={animalDetails.age}
           color={animalDetails.colorCd}

@@ -12,15 +12,12 @@
 }
 
 .list > img {
-  height: 100%;
-  min-height: 100px;
-  max-height: 200px;
-  width: auto;
-  min-width: 100px;
-  max-width: 150px;
+  width: 300px;
+  min-height: 80px;
 }
 
 .dog_info {
+  width: 100%;
   text-align: left;
   margin-left: 20px;
   position: relative;

@@ -1,4 +1,4 @@
-.title {
+.header {
   display: flex;
   align-items: center;
   padding: 68px 0 24px 0;
@@ -6,10 +6,9 @@
   justify-content: center;
   position: relative;
 }
-.title > p {
+.header > p {
   font-weight: 600;
   font-size: 30px;
-  color: var(--color-black);
 }
 .image {
   width: 26px;

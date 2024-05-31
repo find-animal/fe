@@ -9,14 +9,20 @@ import AccountDeletion from "../pages/MyPage/AccountDeletion/AccountDeletion";
 import TermOfService from "../pages/MyPage/TermsOfService/TermOfService";
 import Layout from "./Layout";
 import Home from "../pages/Home";
-import AnimalDetails from "../pages/Animal/AnimalDetails";
+import AnimalDetails from "../pages/AnimalDetails";
+import Animals from "../pages/Animals";
+import Shelters from "../pages/Shelters";
+import Informations from "../pages/Informations/Informations";
 
 export default function Routers() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/animals" element={<Animals />}></Route>
         <Route path="/animals/:id" element={<AnimalDetails />}></Route>
+        <Route path="/shelters" element={<Shelters />}></Route>
+        <Route path="/informations" element={<Informations />}></Route>
         <Route path="/mypage" element={<MyPage />}></Route>
         <Route path="/mypage/change-password" element={<ChangePwd />} />
         <Route path="/mypage/setting" element={<Setting />} />

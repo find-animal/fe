@@ -1,8 +1,8 @@
 import React from "react";
-import icon_double_quote from "../../../../../assets/icon_double_quote.png";
+import icon_double_quote from "../../../../assets/icon_double_quote.png";
 import styles from './AnimalContents.styles.module.css'
 
-export default function AnimalContents({animalBreed, age, color, sex, weight, happenPlace, neuterYn}) {
+export default function AnimalContents({ animalBreed, age, color, sex, weight, happenPlace, neuterYn}) {
   return (
     <div className={styles.container}>
       <img src={icon_double_quote} />

@@ -1,5 +1,5 @@
 import React from "react";
-import icon_shelter_clicked from "../../../../../assets/icon_shelter_clicked.png";
+import icon_shelter_clicked from "../../../../assets/icon_shelter_clicked.png";
 import styles from "./ShelterContents.styles.module.css";
 
 export default function ShelterContents({careNm,careAddr, careTel}) {

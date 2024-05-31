@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.styles.module.css";
 import MyPageList from "./_components/MyPageList/MyPageList";
 import icon_bell from "../../assets/icon_bell.png";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 
 export default function MyPage() {
   const mypageLists = [
@@ -16,7 +16,12 @@ export default function MyPage() {
 
   return (
     <div className={styles.container}>
-      <Header title={'아이디'} img={icon_bell}/>
+      <Header
+        title={"아이디"}
+        img={icon_bell}
+        color={"white"}
+        bgColor={"var(--color-accent)"}
+      />
       <ul className={styles.list_container}>
         {mypageLists.map((mypageList, index) => (
           <MyPageList

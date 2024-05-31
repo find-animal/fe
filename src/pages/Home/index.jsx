@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import icon_bell_accent from "../../assets/icon_bell_accent.png";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 import styles from "./index.styles.module.css";
 import AnimalInfo from "./_components/AnimalInfo/AnimalInfo";
 import axios from "axios";
@@ -56,7 +56,7 @@ export default function Home() {
             </div>
           );
         })}
-        <div ref={ref}></div>
+        <div ref={ref} style={{height: '10px', width: '100%'}}></div>
       </div>
     </div>
   );
