@@ -18,7 +18,9 @@ export default function AnimalInfo({
   return (
     <Link to={`/animals/${id}`} className={styles.link}>
       <div className={styles.list}>
-        <img src={img} />
+        <div className={styles.img_box}>
+          <img src={img} />
+        </div>
         <div className={styles.dog_info}>
           <p>종: {animalBreed}</p>
           <p>생년: {age}</p>
