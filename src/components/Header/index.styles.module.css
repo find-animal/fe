@@ -1,13 +1,10 @@
 .header {
   display: flex;
-  align-items: center;
   padding: 68px 0 24px 0;
-  display: flex;
   justify-content: center;
-  position: relative;
 }
 .header > p {
-  font-weight: 600;
+  font-weight: var(--font-weight);
   font-size: 30px;
 }
 .image {

@@ -1,0 +1,13 @@
+.container {
+  margin: 12px 0 24px 0;
+}
+
+.label {
+  font-weight: var(--font-weight);
+}
+
+#adoptCheck {
+  width: 1.5rem;
+  height: 1.5rem;
+  accent-color: green;
+}

@@ -10,7 +10,7 @@
 }
 
 .title {
-  font-weight: 600;
+  font-weight: var(--font-weight);
   margin-bottom: 12px;
 }
 
@@ -18,5 +18,5 @@
     font-size: 14px;
 }
 .contents span {
-    font-weight: 600;
+    font-weight: var(--font-weight);
 }

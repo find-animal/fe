@@ -1,0 +1,11 @@
+.container {
+    width: 343px;
+    height: 40px;
+    text-align: center;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border: none;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight);
+    border-radius: 25px;
+}
