@@ -15,13 +15,6 @@
   font-weight: var(--font-weight);
 }
 
-.filter_container {
-  display: flex;
-  margin: 24px 10px 0 10px;
-  justify-content: space-around;
-  margin-bottom: 24px;
-}
-
 .list_container {
   padding: 0 16px 0 16px;
   height: calc(100vh - 290.5px);

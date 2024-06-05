@@ -12,7 +12,7 @@ export default function AnimalDetails() {
 
   const fetchAnimalDetails = async () => {
     try {
-      const res = await axios.get(`/api/animals/${id}`);
+      const res = await axios.get(`/api/v1/animals/${id}`);
       setAnimalDetails(res.data);
     } catch (error) {
       console.log(error);
@@ -29,8 +29,9 @@ export default function AnimalDetails() {
   return (
     <div className={styles.container}>
       <AnimalHeader image={animalDetails.popFile} />
-      <div className={styles.content_container}>
+      <div className={styles.contents_container}>
         <p className={styles.special_mark}>{animalDetails.specialMark}</p>
+        <div className={styles.details_container}>
         <AnimalContents
           specialMark={`"${animalDetails.specialMark}"`}
           animalBreed={animalDetails.animalBreed}
@@ -46,6 +47,7 @@ export default function AnimalDetails() {
           careAddr={animalDetails.shelter.careAddr}
           careTel={animalDetails.shelter.careTel}
         />
+      </div>
       </div>
     </div>
   );

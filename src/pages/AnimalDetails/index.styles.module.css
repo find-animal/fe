@@ -1,10 +1,14 @@
-.content_container {
-    height: calc(100vh - 87.5px);
-    padding: 83px 24px 0 24px;
+.contents_container {
+    height: calc(100vh - 337px);
+    padding: 83px 24px 12px 24px;
+}
+
+.details_container {
+    overflow-y: scroll;
 }
 
 .special_mark {
     text-align: center;
     font-weight: var(--font-weight);
-    margin: 0 32px 32px 32px;
+    margin: 0 12px 32px 12px;
 }
