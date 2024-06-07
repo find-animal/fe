@@ -32,22 +32,23 @@ export default function AnimalDetails() {
       <div className={styles.contents_container}>
         <p className={styles.special_mark}>{animalDetails.specialMark}</p>
         <div className={styles.details_container}>
-        <AnimalContents
-          specialMark={`"${animalDetails.specialMark}"`}
-          animalBreed={animalDetails.animalBreed}
-          age={animalDetails.age}
-          color={animalDetails.colorCd}
-          sex={animalDetails.sex}
-          weight={animalDetails.weight}
-          happenPlace={animalDetails.happenPlace}
-          neuterYn={animalDetails.neuterYn}
-        />
-        <ShelterContents
-          careNm={animalDetails.shelter.careNm}
-          careAddr={animalDetails.shelter.careAddr}
-          careTel={animalDetails.shelter.careTel}
-        />
-      </div>
+          <AnimalContents
+            specialMark={`"${animalDetails.specialMark}"`}
+            animalBreed={animalDetails.animalBreed}
+            age={animalDetails.age}
+            color={animalDetails.colorCd}
+            sex={animalDetails.sex}
+            weight={animalDetails.weight}
+            happenPlace={animalDetails.happenPlace}
+            neuterYn={animalDetails.neuterYn}
+          />
+          <ShelterContents
+            shelterTel = {animalDetails.shelter.officeTel}
+            shelterNm={animalDetails.shelter.careNm}
+            shelterAddr={animalDetails.shelter.careAddr}
+            managerTel={animalDetails.shelter.careTel}
+          />
+        </div>
       </div>
     </div>
   );

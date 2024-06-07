@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: row;
-    padding-bottom: 24px;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--color-divider);
 }
 .container > img {
@@ -20,4 +20,7 @@
 }
 .contents span {
     font-weight: var(--font-weight);
+}
+.contents p {
+    margin-bottom: 3px;
 }

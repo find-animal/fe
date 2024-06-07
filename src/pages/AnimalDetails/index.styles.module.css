@@ -1,14 +1,15 @@
 .contents_container {
-    height: calc(100vh - 337px);
-    padding: 83px 24px 12px 24px;
-}
-
-.details_container {
-    overflow-y: scroll;
+  padding: 83px 12px 0 12px;
 }
 
 .special_mark {
-    text-align: center;
-    font-weight: var(--font-weight);
-    margin: 0 12px 32px 12px;
+  text-align: center;
+  font-weight: var(--font-weight);
+  margin: 0 12px 16px 12px;
+}
+
+.details_container {
+  padding: 6px;
+  height: calc(100vh - 470px);
+  overflow-y: auto;
 }

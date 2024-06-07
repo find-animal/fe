@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: row;
-  padding-top: 24px;
+  padding-top: 12px;
 }
 .container > img {
   width: 50px;
@@ -12,6 +12,10 @@
 .title {
   font-weight: var(--font-weight);
   margin-bottom: 12px;
+  display: flex;
+}
+.title p {
+  margin-right: 6px;
 }
 
 .contents {
@@ -19,4 +23,7 @@
 }
 .contents span {
     font-weight: var(--font-weight);
+}
+.contents p {
+  margin-bottom: 3px;
 }

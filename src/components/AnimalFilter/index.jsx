@@ -13,8 +13,6 @@ export default function AnimalFilter({ onApplyFilter }) {
   const [locationFilter, setLocationFilter] = useState(null);
   const [adoptFilter, setAdoptFilter] = useState(null);
   
-  let params = {};
-
   const handleSexFilter = (filter) => {
     setSexFilter(filter);
   };
