@@ -1,11 +1,14 @@
 import React from "react";
 import styles from "./App.styles.module.css";
 import Routers from "./components/Routers";
+import { RecoilRoot } from "recoil";
 
 function App() {
   return (
     <div className={styles.App}>
-      <Routers />
+      <RecoilRoot>
+        <Routers />
+      </RecoilRoot>
     </div>
   );
 }

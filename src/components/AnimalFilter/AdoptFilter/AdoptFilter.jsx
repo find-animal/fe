@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./AdoptFilter.styles.module.css";
+import { useRecoilState } from "recoil";
+import { adoptFilterState } from "../atoms";
 
-export default function AdoptFilter({ onAdoptFilterChange }) {
-  const handleOptionClick = (e) => {
-    const checked = e.target.checked;
-    onAdoptFilterChange(checked);
-  };
+export default function AdoptFilter() {
+  const [selected, setSelected] = useRecoilState(adoptFilterState);
+
   return (
     <div className={styles.container}>
       <label className={styles.label} htmlFor="adoptCheck">
         입양가능
       </label>
-      <input id="adoptCheck" type="checkbox" onClick={handleOptionClick} />
+      <input id="adoptCheck" type="checkbox" checked={selected} onChange={(e)=> setSelected(e.target.checked)} />
     </div>
   );
 }

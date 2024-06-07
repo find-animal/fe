@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./SexFilter.styles.module.css";
+import { useRecoilState } from "recoil";
+import { sexFilterState } from "../atoms";
 
-export default function SexFilter({ onSexFilterChange }) {
+export default function SexFilter() {
   const options = [
     { name: "전체", code: null  },
     { name: "수컷", code: "M"  },
     { name: "암컷", code: "F"  },
   ];
-  const [selected, setSelected] = useState(options[0].code);
-
-  const handleOptionCheck = (option) => {
-    setSelected(option.code);
-    onSexFilterChange(option.code);
-  };
+  const [selected, setSelected] = useRecoilState(sexFilterState);
 
   return (
     <div>
@@ -30,7 +27,7 @@ export default function SexFilter({ onSexFilterChange }) {
                   ? "var(--color-white)"
                   : "var(--color-black)",
             }}
-            onClick={() => handleOptionCheck(option)}
+            onClick={() => setSelected(option.code)}
           >
             {option.name}
           </li>

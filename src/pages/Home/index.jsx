@@ -14,7 +14,6 @@ export default function Home() {
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [filterParams, setFilterParams] = useState();
   const todayDate = new Date();
-
   const [ref, inView] = useInView();
 
   const fetchAnimalData = async () => {

@@ -6,28 +6,17 @@ import AgeFilter from "./AgeFilter/AgeFilter";
 import LocationFilter from "./LocationFilter/LocationFilter";
 import AdoptFilter from "./AdoptFilter/AdoptFilter";
 import axios from "axios";
+import { useRecoilState } from "recoil";
+import { sexFilterState, ageFilterState, locationFilterState, adoptFilterState } from "./atoms";
 
 export default function AnimalFilter({ onApplyFilter }) {
-  const [sexFilter, setSexFilter] = useState([null]);
-  const [ageFilter, setAgeFilter] = useState({ startYear: "", endYear: "" });
-  const [locationFilter, setLocationFilter] = useState(null);
-  const [adoptFilter, setAdoptFilter] = useState(null);
-  
-  const handleSexFilter = (filter) => {
-    setSexFilter(filter);
-  };
-  const handleAgeFilter = (filter) => {
-    setAgeFilter(filter);
-  };
-  const handleLocationFilter = (filter) => {
-    setLocationFilter(filter);
-  };
-  const handleAdoptFilter = (filter) => {
-    setAdoptFilter(filter);
-  };
+  const [sexFilter, setSexFilter] = useRecoilState(sexFilterState);
+  const [ageFilter, setAgeFilter] = useRecoilState(ageFilterState);
+  const [locationFilter, setLocationFilter] = useRecoilState(locationFilterState);
+  const [adoptFilter, setAdoptFilter] = useRecoilState(adoptFilterState);
+  let params = {};
 
   const handleApplyFilters = async () => {
-    let params = {};
 
     if (sexFilter) {
       params.sexCd = sexFilter;
@@ -52,10 +41,10 @@ export default function AnimalFilter({ onApplyFilter }) {
 
   return (
     <div className={styles.container}>
-      <SexFilter onSexFilterChange={handleSexFilter} />
-      <AgeFilter onAgeFilterChange={handleAgeFilter} />
-      <LocationFilter onLocationFilterChange={handleLocationFilter} />
-      <AdoptFilter onAdoptFilterChange={handleAdoptFilter} />
+      <SexFilter/>
+      <AgeFilter/>
+      <LocationFilter/>
+      <AdoptFilter />
       <Button text={"적용"} onClick={handleApplyFilters} width={"50px"} />
     </div>
   );

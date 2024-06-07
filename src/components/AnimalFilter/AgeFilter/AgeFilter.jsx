@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./AgeFilterstyles.module.css";
+import { useRecoilState } from "recoil";
+import { ageFilterState } from "../atoms";
 
-export default function AgeFilter({ onAgeFilterChange }) {
-  const [option, setOption] = useState({ startYear: null, endYear: null });
+export default function AgeFilter() {
+  const [selected, setSelected] = useRecoilState(ageFilterState);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setOption({ ...option, [name]: value });
-    onAgeFilterChange({ ...option, [name]: value });
+    setSelected({ ...selected, [name]: value });
   };
 
   return (
@@ -16,7 +17,7 @@ export default function AgeFilter({ onAgeFilterChange }) {
       <div className={styles.option_container}>
         <input
           name="startYear"
-          value={option.startYear|| ''}
+          value={selected.startYear|| ''}
           type="number"
           placeholder="YYYY"
           onChange={handleInputChange}
@@ -24,7 +25,7 @@ export default function AgeFilter({ onAgeFilterChange }) {
         <span>~</span>
         <input
           name="endYear"
-          value={option.endYear || ''}
+          value={selected.endYear || ''}
           type="number"
           placeholder="YYYY"
           onChange={handleInputChange}

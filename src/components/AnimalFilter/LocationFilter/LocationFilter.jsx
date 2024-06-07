@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./LocationFilter.styles.module.css";
+import { useRecoilState } from "recoil";
+import { locationFilterState } from "../atoms";
 
-export default function LocationFilter({onLocationFilterChange}) {
+export default function LocationFilter() {
   const options = [
     { name: "전체", code: null },
     { name: "서울특별시", code: "18" },
@@ -22,7 +24,7 @@ export default function LocationFilter({onLocationFilterChange}) {
     { name: "제주특별자치도", code: "34" },
   ];
 
-  const [selected, setSelected] = useState([options[0].code]);
+  const [selected, setSelected] = useRecoilState(locationFilterState);
 
   const handleOptionCheck = (option) => {
     let updatedSelected;
@@ -34,7 +36,6 @@ export default function LocationFilter({onLocationFilterChange}) {
       updatedSelected = [...selected.filter((item) => item != null), option.code];
     }
     setSelected(updatedSelected);
-    onLocationFilterChange(updatedSelected);
   };
 
   return (
