@@ -25,7 +25,7 @@ export default function SexFilter() {
               color:
                 selected === option.code
                   ? "var(--color-white)"
-                  : "var(--color-black)",
+                  : "var(--color-gray)",
             }}
             onClick={() => setSelected(option.code)}
           >

@@ -15,5 +15,5 @@
 
   .option {
     cursor: pointer;
-    color: #5d5d5d;
+    color: var(--color-gray);
   }

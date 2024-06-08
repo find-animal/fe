@@ -20,6 +20,6 @@
   border: 1px solid var(--color-accent);
   text-align: center;
   padding: 4px 12px 4px 8px;
-  color: #5d5d5d;
+  color: var(--color-gray);
   margin: 6px 12px 12px 0;
 }

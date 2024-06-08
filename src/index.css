@@ -3,6 +3,7 @@
   --color-accent: #e1be96;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-gray: #979C9E;
   --color-divider: #e8e8e8;
 
   /* size */
@@ -53,6 +54,10 @@ button {
 
 input[type='checkbox'] {
   accent-color: var(--color-accent);
+}
+
+a {
+  text-decoration: none;
 }
 
 input::-webkit-outer-spin-button,

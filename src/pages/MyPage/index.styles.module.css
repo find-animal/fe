@@ -2,9 +2,13 @@
     
 }
 
-.list_container {
+.contents_container {
     background-color: var(--color-white);
-    padding: 8px 23px 108px 26px;
-}
+    margin-top: 32px;
+    padding: 0 23px 40px 26px;
+  }
 
-
+  .logOut {
+    text-align: center;
+    color: var(--color-gray);
+  }

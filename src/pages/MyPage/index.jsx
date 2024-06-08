@@ -1,17 +1,23 @@
 import React from "react";
 import styles from "./index.styles.module.css";
-import MyPageList from "./_components/MyPageList/MyPageList";
 import icon_bell from "../../assets/icon_bell.png";
 import Header from "../../components/Header";
+import icon_account from "../../assets/icon_account.png";
+import icon_password from "../../assets/icon_password.png";
+import icon_bell_black from "../../assets/icon_bell_black.png";
+import icon_star from "../../assets/icon_star.png";
+import icon_notice from "../../assets/icon_notice.png";
+import MyPageList from "./_components/MyPageList/MyPageList";
 
 export default function MyPage() {
-  const mypageLists = [
-    { name: "비밀번호 변경", path: "/change-password" },
-    { name: "앱설정", path: "/setting" },
-    { name: "공지사항", path: "/notice" },
-    { name: "로그아웃", path: "/logout" },
-    { name: "이용약관", path: "/term-of-service" },
-    { name: "회원탈퇴", path: "/account-deletion" },
+  const accountsLists = [
+    { icon: icon_account, name: "회원 정보", path: "/account-information" },
+    { icon: icon_password, name: "비밀번호 변경", path: "/change-password" },
+    { icon: icon_bell_black, name: "공지사항", path: "/notice" },
+  ];
+  const moreLists = [
+    { icon: icon_star, name: "앱설정", path: "/setting" },
+    { icon: icon_notice, name: "이용약관", path: "/term-of-service" },
   ];
 
   return (
@@ -22,15 +28,11 @@ export default function MyPage() {
         color={"white"}
         bgColor={"var(--color-accent)"}
       />
-      <ul className={styles.list_container}>
-        {mypageLists.map((mypageList, index) => (
-          <MyPageList
-            key={index}
-            name={mypageList.name}
-            path={mypageList.path}
-          />
-        ))}
-      </ul>
+      <div className={styles.contents_container}>
+        <MyPageList title={"Account"} myPageLists={accountsLists} />
+        <MyPageList title={"More"} myPageLists={moreLists} />
+      </div>
+      <p className={styles.logOut}>로그아웃</p>
     </div>
   );
 }

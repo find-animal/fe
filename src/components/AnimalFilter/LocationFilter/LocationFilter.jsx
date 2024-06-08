@@ -49,7 +49,7 @@ export default function LocationFilter() {
             onClick={() => handleOptionCheck(option)}
             style={{
               fontWeight: selected.includes(option.code) ? "var(--font-weight)" : "",
-              color: selected.includes(option.code) ? "var(--font-black)" : "#5d5d5d",
+              color: selected.includes(option.code) ? "var(--font-black)" : "var(--color-gray)",
             }}
           >
             {option.name}

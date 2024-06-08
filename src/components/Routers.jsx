@@ -13,6 +13,7 @@ import AnimalDetails from "../pages/AnimalDetails";
 import Animals from "../pages/Animals";
 import Shelters from "../pages/Shelters";
 import Informations from "../pages/Informations/Informations";
+import AccInform from "../pages/MyPage/AccInform/AccInform";
 
 export default function Routers() {
   return (
@@ -24,12 +25,13 @@ export default function Routers() {
         <Route path="/shelters" element={<Shelters />}></Route>
         <Route path="/informations" element={<Informations />}></Route>
         <Route path="/mypage" element={<MyPage />}></Route>
-        <Route path="/mypage/change-password" element={<ChangePwd />} />
+        <Route path="/mypage/account-information" element={<AccInform />} />
         <Route path="/mypage/setting" element={<Setting />} />
         <Route path="/mypage/notice" element={<Notice />} />
         <Route path="/mypage/logout" element={<LogOut />} />
         <Route path="/mypage/term-of-service" element={<TermOfService />} />
         <Route path="/mypage/account-deletion" element={<AccountDeletion />} />
+        <Route path="/mypage/change-password" element={<ChangePwd />} />
       </Route>
     </Routes>
   );
