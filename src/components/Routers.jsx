@@ -14,12 +14,16 @@ import Animals from "../pages/Animals";
 import Shelters from "../pages/Shelters";
 import Informations from "../pages/Informations/Informations";
 import AccInform from "../pages/MyPage/AccInform/AccInform";
+import LogIn from "../pages/LogIn";
+import SignUp from "../pages/SignUp";
 
 export default function Routers() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/signup" element={<SignUp />}></Route>
+        <Route path='/login' element={<LogIn />}></Route>
         <Route path="/animals" element={<Animals />}></Route>
         <Route path="/animals/:id" element={<AnimalDetails />}></Route>
         <Route path="/shelters" element={<Shelters />}></Route>

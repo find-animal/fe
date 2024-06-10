@@ -45,7 +45,7 @@ export default function AnimalFilter({ onApplyFilter }) {
       <AgeFilter/>
       <LocationFilter/>
       <AdoptFilter />
-      <Button text={"적용"} onClick={handleApplyFilters} width={"50px"} />
+      <Button text={"적용"} onClick={handleApplyFilters} />
     </div>
   );
 }

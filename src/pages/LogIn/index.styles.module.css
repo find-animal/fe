@@ -1,0 +1,13 @@
+.container {
+    padding: 68px 16px 88px 16px;
+}
+.title {
+    margin-bottom: 16px;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight);
+    text-align: center;
+}
+.warning {
+    margin-bottom: 50px;
+    font-size: var(--font-size-sm);
+}
