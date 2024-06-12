@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./index.styles.module.css";
 import Button from "../Button";
 import SexFilter from "./SexFilter/SexFilter";
@@ -34,8 +34,8 @@ export default function AnimalFilter({ onApplyFilter }) {
     try {
       const res = await axios.get(`/api/v1/animals?page=0`, { params });
       onApplyFilter(res.data.content, params);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
     }
   };
 

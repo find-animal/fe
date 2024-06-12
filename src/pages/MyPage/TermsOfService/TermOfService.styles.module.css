@@ -9,11 +9,6 @@
     margin-bottom: 42px;
 }
 
-.header img {
-    width: 6px;
-    height: 12px;
-}
-
 .header p {
     flex-grow: 1;
     text-align: center;

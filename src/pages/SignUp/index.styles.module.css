@@ -3,22 +3,22 @@
 }
 
 .header {
-    padding-right: 16px;
     display: flex;
     margin-bottom: 16px;
+    text-align: center;
+    align-items: center;
 }
 .header p {
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight);
-    text-align: center;
     flex: 1;
-}
-.header img {
-    width: 30px;
-    height: 30px;
 }
 
 .container > p {
     margin: -4px 0 50px 0;
     font-size: var(--font-size-sm);
+}
+
+.warning {
+    color: red;
 }
