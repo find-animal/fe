@@ -2,6 +2,7 @@
   display: flex;
   padding: 68px 0 24px 0;
   justify-content: center;
+  position: relative;
 }
 .header > p {
   font-weight: var(--font-weight);

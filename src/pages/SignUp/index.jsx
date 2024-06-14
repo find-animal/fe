@@ -4,6 +4,7 @@ import Button from "../../components/Button";
 import GoBackIcon from "../../components/GoBackIcon";
 import InputBox from "../../components/InputBox";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export default function SignUp() {
   const navigate = useNavigate();

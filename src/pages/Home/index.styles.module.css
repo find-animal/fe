@@ -16,8 +16,7 @@
 }
 
 .list_container {
-  padding: 0 16px 0 16px;
-  height: calc(100vh - 290.5px);
+  padding: 0 8px 0 8px;
   overflow-y: auto;
   text-align: center;
 }
