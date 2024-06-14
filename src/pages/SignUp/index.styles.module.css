@@ -14,11 +14,8 @@
     flex: 1;
 }
 
-.container > p {
-    margin: -4px 0 50px 0;
-    font-size: var(--font-size-sm);
-}
-
 .warning {
     color: red;
+    margin: -4px 0 50px 0;
+    font-size: var(--font-size-sm);
 }

@@ -16,6 +16,7 @@ import Informations from "../pages/Informations/Informations";
 import AccInform from "../pages/MyPage/AccInform/AccInform";
 import LogIn from "../pages/LogIn";
 import SignUp from "../pages/SignUp";
+import NotFound from "../pages/NotFound";
 
 export default function Routers() {
   return (
@@ -36,6 +37,7 @@ export default function Routers() {
         <Route path="/mypage/term-of-service" element={<TermOfService />} />
         <Route path="/mypage/account-deletion" element={<AccountDeletion />} />
         <Route path="/mypage/change-password" element={<ChangePwd />} />
+        <Route path='*' element={<NotFound />} />
       </Route>
     </Routes>
   );

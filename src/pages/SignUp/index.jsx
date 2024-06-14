@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./index.styles.module.css";
 import Button from "../../components/Button";
 import GoBackIcon from "../../components/GoBackIcon";
@@ -13,12 +13,14 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSignUp = async () => {
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+
     if (id.length < 4) {
       setError("아이디는 최소 4글자 이상이어야 합니다.");
       return;
     } else if (!/(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\W)(?=\S+$).{8,16}/.test(password)) {
-      setError("비밀번호는 대소문자, 특수문자 포함 최소 8글자이어야 합니다.");
+      setError("비밀번호는 8~16자 영문 대소문자, 숫자, 특수문자를 사용하세요.");
       return;
     } else if (password !== confirmPassword) {
       setError("비밀번호가 일치하지 않습니다.");
@@ -27,8 +29,8 @@ export default function SignUp() {
 
     try {
       axios.post('/api/v1/user/signup', {
-        nickname: id,
-        password: password,
+        id,
+        password,
       }).then(() => {
         alert('회원가입 성공');
         navigate('/login');
@@ -55,5 +57,4 @@ export default function SignUp() {
       </form>
     </div>
   )
-
 }
