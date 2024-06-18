@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AgeFilterstyles.module.css";
 import { useRecoilState } from "recoil";
-import { ageFilterState } from "../atoms";
+import { ageFilterState } from "../../../apis/atoms";
 
 export default function AgeFilter() {
   const [selected, setSelected] = useRecoilState(ageFilterState);

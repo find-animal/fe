@@ -10,7 +10,7 @@ import TermOfService from "../pages/MyPage/TermsOfService/TermOfService";
 import Index from "./Layout";
 import Home from "../pages/Home";
 import AnimalDetails from "../pages/AnimalDetails";
-import Animals from "../pages/Animals";
+import Animals from "../pages/AnimalShelterLike";
 import Shelters from "../pages/Shelters";
 import Informations from "../pages/Informations/Informations";
 import AccInform from "../pages/MyPage/AccInform/AccInform";

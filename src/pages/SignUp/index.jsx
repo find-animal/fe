@@ -40,7 +40,7 @@ export default function SignUp() {
           navigate("/login");
         })
         .catch((err) => {
-          if (err.response && err.response.status === 400) {
+          if (err.response && err.response.code === 2001) {
             setError("이미 사용 중인 아이디입니다.");
           } else {
             console.log(err);

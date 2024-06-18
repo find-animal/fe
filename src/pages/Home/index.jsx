@@ -53,17 +53,18 @@ export default function Home() {
   return (
     <>
       <div className={styles.container}>
-        <Header title={"find-animal"} img={icon_bell_accent} />
-        <div className={styles.button_container}>
-          <button className={styles.button}>+ 관심 보호소 등록</button>
-          <button className={styles.button} onClick={handleOpenFilter}>
-            Filter
-          </button>
+        <div className={styles.header}>
+          <Header title={"find-animal"} img={icon_bell_accent} />
+          <div className={styles.button_container}>
+            <button className={styles.button}>+ 관심 보호소 등록</button>
+            <button className={styles.button} onClick={handleOpenFilter}>
+              Filter
+            </button>
+          </div>
         </div>
         <div className={styles.list_container}>
           {isLoading && <p>Loading...</p>}
-          {animalList
-          .map((list) => {
+          {animalList.map((list) => {
             return (
               <div key={list.id}>
                 <AnimalInfo

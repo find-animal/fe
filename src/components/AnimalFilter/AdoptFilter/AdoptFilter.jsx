@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AdoptFilter.styles.module.css";
 import { useRecoilState } from "recoil";
-import { adoptFilterState } from "../atoms";
+import { adoptFilterState } from "../../../apis/atoms";
 
 export default function AdoptFilter() {
   const [selected, setSelected] = useRecoilState(adoptFilterState);

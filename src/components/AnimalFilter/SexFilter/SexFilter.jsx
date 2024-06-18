@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./SexFilter.styles.module.css";
 import { useRecoilState } from "recoil";
-import { sexFilterState } from "../atoms";
+import { sexFilterState } from "../../../apis/atoms";
 
 export default function SexFilter() {
   const options = [

@@ -7,7 +7,7 @@ import LocationFilter from "./LocationFilter/LocationFilter";
 import AdoptFilter from "./AdoptFilter/AdoptFilter";
 import axios from "axios";
 import { useRecoilState } from "recoil";
-import { sexFilterState, ageFilterState, locationFilterState, adoptFilterState } from "./atoms";
+import { sexFilterState, ageFilterState, locationFilterState, adoptFilterState } from "../../apis/atoms";
 
 export default function AnimalFilter({ onApplyFilter }) {
   const [sexFilter, setSexFilter] = useRecoilState(sexFilterState);

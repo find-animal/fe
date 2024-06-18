@@ -7,15 +7,13 @@
     align-items: center;
     position: relative;
 }
+.header img {
+    cursor: pointer;
+}
 
 .title {
     font-weight: var(--font-weight);
     font-size: var(--font-size-xl);
-}
-
-.heart {
-    width: auto;
-    height: 28px;
 }
 
 .img_box {

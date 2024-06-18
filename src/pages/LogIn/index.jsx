@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import InputBox from "../../components/InputBox";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 export default function LogIn() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ export default function LogIn() {
   const [password, setPassword] = useState("");
   const [check, setCheck] = useState(true);
 
-  const handleLogIn = async () => {
+  const handleLogIn = () => {
     try {
       axios
         .post("/api/v1/user/login", {
@@ -22,11 +23,16 @@ export default function LogIn() {
           const token = res.data.jwt;
           if (token) {
             localStorage.setItem("token", token);
+
+            const decoded = jwtDecode(token);
+            localStorage.setItem("userId", decoded.sub);
+
             navigate("/");
           }
         })
-        .catch((e) => {
+        .catch((err) => {
           setCheck(false);
+          console.log(err);
         });
     } catch (err) {
       console.log(err);

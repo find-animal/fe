@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styles from "./LocationFilter.styles.module.css";
 import {useRecoilState} from "recoil";
-import {locationFilterState} from "../atoms";
+import {locationFilterState} from "../../../apis/atoms";
 import axios from "axios";
 
 export default function LocationFilter() {

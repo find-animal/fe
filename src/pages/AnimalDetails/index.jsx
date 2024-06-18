@@ -10,6 +10,10 @@ export default function AnimalDetails() {
   const { id } = useParams();
   const [animalDetails, setAnimalDetails] = useState(null);
 
+  useEffect(() => {
+    fetchAnimalDetails();
+  }, [id]);
+
   const fetchAnimalDetails = async () => {
     try {
       const res = await axios.get(`/api/v1/animals/${id}`);
@@ -18,9 +22,6 @@ export default function AnimalDetails() {
       console.log(err);
     }
   };
-  useEffect(() => {
-    fetchAnimalDetails();
-  }, [id]);
 
   if (!animalDetails) {
     return <p style={{ textAlign: "center" }}>Loading...</p>;
@@ -28,7 +29,7 @@ export default function AnimalDetails() {
 
   return (
     <div>
-      <AnimalHeader image={animalDetails.popFile} />
+      <AnimalHeader image={animalDetails.popFile} animalId={id} />
       <div className={styles.contents_container}>
         <p className={styles.special_mark}>{animalDetails.specialMark}</p>
         <div className={styles.details_container}>
@@ -43,7 +44,7 @@ export default function AnimalDetails() {
             neuterYn={animalDetails.neuterYn}
           />
           <ShelterContents
-            shelterTel = {animalDetails.shelter.officeTel}
+            shelterTel={animalDetails.shelter.officeTel}
             shelterNm={animalDetails.shelter.careNm}
             shelterAddr={animalDetails.shelter.careAddr}
             managerTel={animalDetails.shelter.careTel}
