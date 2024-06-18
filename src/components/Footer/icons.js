@@ -15,24 +15,28 @@ export const icons = [
     clicked_src: icon_book_clicked,
     alt: "book",
     link: "/informations",
+    text: "소식",
   },
   {
     src: icon_shelter,
     clicked_src: icon_shelter_clicked,
     alt: "shelter",
     link: "/shelters",
+    text: "보호소 찾기",
   },
   {
     src: icon_home,
     clicked_src: icon_home_clicked,
     alt: "home",
     link: "/",
+    text: "홈",
   },
   {
     src: icon_heart,
     clicked_src: icon_heart_clicked,
     alt: "animal",
     link: "/animals",
+    text: "관심 목록",
   },
 
   {
@@ -40,5 +44,6 @@ export const icons = [
     clicked_src: icon_profile_clicked,
     alt: "profile",
     link: "/mypage",
+    text: "마이페이지",
   },
 ];

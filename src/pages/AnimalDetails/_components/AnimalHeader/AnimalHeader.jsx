@@ -52,9 +52,10 @@ export default function AnimalHeader({ animalId, image }) {
         <img
           src={heartImage}
           onClick={handleLikeAnimal}
+          alt={'heart'}
         />
         <div className={styles.img_box} onClick={handleOpenModal}>
-          <img src={image} />
+          <img src={image} alt={'animal'}/>
         </div>
       </div>
 

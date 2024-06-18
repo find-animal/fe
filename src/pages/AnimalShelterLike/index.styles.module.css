@@ -1,0 +1,14 @@
+.contents_container {
+    padding: 16px;
+}
+
+.list_container > h4 {
+    margin-bottom: 16px;
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-divider);
+    margin: 8px 0 16px 0;
+}
