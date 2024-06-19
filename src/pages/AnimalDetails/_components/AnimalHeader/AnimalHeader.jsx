@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import styles from "./AnimalHeader.styles.module.css";
 import Heart from "../../../../components/Heart";
+import GoBackIcon from "../../../../components/GoBackIcon";
 
 export default function AnimalHeader({ animalId, image }) {
   const [isModal, setIsModal] = useState(false);
@@ -16,7 +17,7 @@ export default function AnimalHeader({ animalId, image }) {
   return (
     <>
       <div className={styles.header}>
-        <p>Back</p>
+        <GoBackIcon />
         <p className={styles.title}>상세정보</p>
         <Heart animalId={animalId}/>
         <div className={styles.img_box} onClick={handleOpenModal}>

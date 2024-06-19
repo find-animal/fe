@@ -19,7 +19,7 @@ export default function AnimalInfo({
     <Link to={`/animals/${id}`} className={styles.link}>
       <div className={styles.list}>
         <div className={styles.img_box}>
-          <img src={img} />
+          <img src={img} alt={'animal'}/>
         </div>
         <div className={styles.dog_info}>
           <p>종: {animalBreed}</p>

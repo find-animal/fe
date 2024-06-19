@@ -1,12 +1,12 @@
 .container {
     display: flex;
-    flex-direction: row;
+}
+
+.container > a {
+    display: flex;
     margin-bottom: 24px;
     position: relative;
-}
-.img_heart {
-    position: absolute;
-    right: 0;
+    color: var(--color-black);
 }
 
 .img_box {
@@ -20,14 +20,15 @@
     background-color: var(--color-white);
 }
 .img_box > img {
-    width: 80px;
+    width: 100px;
     height: auto;
 }
 
 .text_container {
-    width: 65%;
+    width: 100%;
+    display: block;
     margin-left: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--color-divider);
 }
 .text_container p {
