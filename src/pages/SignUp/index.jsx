@@ -9,9 +9,21 @@ import { useNavigate } from "react-router-dom";
 export default function SignUp() {
   const navigate = useNavigate();
   const [id, setId] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+
+  const handleIdChange = async (value) => {
+    try {
+      await axios.get("/api/v1/user/checkId", { params: { id: value } });
+      setError("");
+    } catch (err) {
+      if (err.response.data.code === 2001) {
+        setError("이미 사용중인 아이디입니다.");
+      }
+    }
+  };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -30,22 +42,13 @@ export default function SignUp() {
     }
 
     try {
-      axios
-        .post("/api/v1/user/signup", {
-          id,
-          password,
-        })
-        .then(() => {
-          alert("회원가입 성공");
-          navigate("/login");
-        })
-        .catch((err) => {
-          if (err.response && err.response.code === 2001) {
-            setError("이미 사용 중인 아이디입니다.");
-          } else {
-            console.log(err);
-          }
-        });
+      await axios.post("/api/v1/user/signup", {
+        id,
+        password,
+        email,
+      });
+      alert("회원가입 성공");
+      navigate("/login");
     } catch (err) {
       console.log(err);
     }
@@ -58,16 +61,28 @@ export default function SignUp() {
         <p>회원가입</p>
       </div>
       <form onSubmit={handleSignUp}>
-        <InputBox type={"text"} text={"아이디"} onInputChange={setId} />
+        <InputBox
+          type={"text"}
+          text={"아이디"}
+          onInputChange={handleIdChange}
+        />
+        <InputBox
+          type={"email"}
+          text={"이메일"}
+          onInputChange={setEmail}
+          buttonText={"verify"}
+        />
         <InputBox
           type={"password"}
           text={"비밀번호"}
           onInputChange={setPassword}
+          buttonText={"show"}
         />
         <InputBox
           type={"password"}
           text={"비밀번호 확인"}
           onInputChange={setConfirmPassword}
+          buttonText={"show"}
         />
         <p className={styles.warning}>{error}</p>
         <Button text={"회원가입"} type="submit" />
