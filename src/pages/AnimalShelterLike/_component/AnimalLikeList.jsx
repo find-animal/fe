@@ -3,7 +3,7 @@ import styles from "./AnimalLikeList.styles.module.css";
 import Heart from "../../../components/Heart";
 
 export default function AnimalLikeList({ animal }) {
-  const { popFile, animalBreed, specialMark } = animal;
+  const { id, popFile, animalBreed, specialMark } = animal;
   return (
     <div className={styles.container}>
       <div className={styles.img_box}>
@@ -14,7 +14,7 @@ export default function AnimalLikeList({ animal }) {
         <p>{specialMark}</p>
       </div>
       <div className={styles.img_heart}>
-        <Heart/>
+        <Heart animalId={id}/>
       </div>
     </div>
   );

@@ -28,7 +28,7 @@ export default function AnimalDetails() {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <AnimalHeader image={animalDetails.popFile} animalId={id} />
       <div className={styles.contents_container}>
         <p className={styles.special_mark}>{animalDetails.specialMark}</p>
