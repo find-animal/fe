@@ -29,7 +29,9 @@ export default function Heart({ animalId }) {
     if (heartImg === icon_heart) {
       axios
         .post("/api/v1/user/animal", { userId, animalId })
-        .then((res) => setHeartImg(icon_heart_like))
+        .then((res) => {
+          setHeartImg(icon_heart_like)
+        })
         .catch((err) => console.log(err));
     } else {
       axios

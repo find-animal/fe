@@ -11,6 +11,10 @@
     cursor: pointer;
 }
 
+.icon {
+    width: 28px;
+}
+
 .title {
     font-weight: var(--font-weight);
     font-size: var(--font-size-xl);

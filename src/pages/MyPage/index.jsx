@@ -8,6 +8,7 @@ import icon_bell_black from "../../assets/icon_bell_black.png";
 import icon_star from "../../assets/icon_star.png";
 import icon_notice from "../../assets/icon_notice.png";
 import MyPageList from "./_components/MyPageList/MyPageList";
+import { useNavigate } from "react-router-dom";
 
 export default function MyPage() {
   const accountsLists = [
@@ -19,6 +20,12 @@ export default function MyPage() {
     { icon: icon_star, name: "앱설정", path: "/setting" },
     { icon: icon_notice, name: "이용약관", path: "/term-of-service" },
   ];
+  const navigate = useNavigate();
+
+  const handleClickLogOut = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
 
   return (
     <div className={styles.container}>
@@ -32,7 +39,9 @@ export default function MyPage() {
         <MyPageList title={"Account"} myPageLists={accountsLists} />
         <MyPageList title={"More"} myPageLists={moreLists} />
       </div>
-      <p className={styles.logOut}>로그아웃</p>
+      <p className={styles.logOut} onClick={handleClickLogOut}>
+        로그아웃
+      </p>
     </div>
   );
 }

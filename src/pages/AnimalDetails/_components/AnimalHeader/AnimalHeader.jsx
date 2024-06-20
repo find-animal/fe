@@ -17,7 +17,9 @@ export default function AnimalHeader({ animalId, image }) {
   return (
     <>
       <div className={styles.header}>
-        <GoBackIcon />
+        <div className={styles.icon}>
+          <GoBackIcon />
+        </div>
         <p className={styles.title}>상세정보</p>
         <Heart animalId={animalId}/>
         <div className={styles.img_box} onClick={handleOpenModal}>
