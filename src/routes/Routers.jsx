@@ -7,7 +7,6 @@ import Notice from "../pages/MyPage/Notice/Notice";
 import LogOut from "../pages/MyPage/LogOut/LogOut";
 import AccountDeletion from "../pages/MyPage/AccountDeletion/AccountDeletion";
 import TermOfService from "../pages/MyPage/TermsOfService/TermOfService";
-import Index from "./Layout";
 import Home from "../pages/Home";
 import AnimalDetails from "../pages/AnimalDetails";
 import Animals from "../pages/AnimalShelterLike";
@@ -17,14 +16,17 @@ import AccInform from "../pages/MyPage/AccInform/AccInform";
 import LogIn from "../pages/LogIn";
 import SignUp from "../pages/SignUp";
 import NotFound from "../pages/NotFound";
+import { PrivateRoute } from "./PrivateRoute";
 
 export default function Routers() {
   return (
     <Routes>
-      <Route element={<Index />}>
-        <Route path="/" element={<Home />}></Route>
+      <Route>
+        <Route path="/login" element={<LogIn />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
-        <Route path='/login' element={<LogIn />}></Route>
+      </Route>
+      <Route element={<PrivateRoute />}>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/animals" element={<Animals />}></Route>
         <Route path="/animals/:id" element={<AnimalDetails />}></Route>
         <Route path="/shelters" element={<Shelters />}></Route>
@@ -37,7 +39,7 @@ export default function Routers() {
         <Route path="/mypage/term-of-service" element={<TermOfService />} />
         <Route path="/mypage/account-deletion" element={<AccountDeletion />} />
         <Route path="/mypage/change-password" element={<ChangePwd />} />
-        <Route path='/*' element={<NotFound />} />
+        <Route path="/*" element={<NotFound />} />
       </Route>
     </Routes>
   );
