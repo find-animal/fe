@@ -16,9 +16,7 @@ export default function AnimalLikeList({ animal }) {
           <p>{specialMark}</p>
         </div>
       </Link>
-      <div>
-        <Heart animalId={id} />
-      </div>
+      <Heart id={id} type={"animal"}/>
     </div>
   );
 }

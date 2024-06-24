@@ -4,6 +4,8 @@ import Header from '../../components/Header'
 import icon_bell_accent from "../../assets/icon_bell_accent.png";
 import AnimalLikeList from "./_component/AnimalLikeList/AnimalLikeList";
 import axios from "axios";
+import Divider from "../../components/Divider";
+import ShelterInfo from "../../components/ShelterInfo";
 
 export default function AnimalLike() {
   const [animalLikeLists, setAnimalLikeLists] = useState([]);
@@ -20,22 +22,22 @@ export default function AnimalLike() {
   }
 
   const fetchShelterLikeList = async () => {
-    // try {
-    //   const res = await axios(`/api/v1/animals/favorite/${userId}`);
-    //   setAnimalLikeLists(res.data);
-    // } catch(err) {
-    //   console.log(err);
-    // }
+    try {
+      const res = await axios(`/api/v1/shelter/favorite/${userId}`);
+      setShelterLikeLists(res.data);
+    } catch(err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {
     fetchAnimalLikeList();
     fetchShelterLikeList();
-  }, [animalLikeLists]);
+  }, []);
 
   return (
     <div className={styles.container}>
-      <Header title={"관심 리스트"} img={icon_bell_accent}/>
+      <Header title={"관심 목록"} img={icon_bell_accent}/>
       <div className={styles.contents_container}>
         <div className={styles.list_container}>
           <h3>관심 동물</h3>
@@ -44,15 +46,15 @@ export default function AnimalLike() {
               <AnimalLikeList animal={list}/>
             ))}
         </div>
-        <div className={styles.divider}></div>
+        <Divider />
         <div className={styles.list_container}>
           <h3>관심 보호소</h3>
           {shelterLikeLists.length === 0 ? <p>관심 보호소를 등록해주세요.</p> :
             shelterLikeLists.map((list) => (
-              <AnimalLikeList animal={list}/>
+              <ShelterInfo list={list}/>
             ))}
         </div>
-        <div className={styles.divider}></div>
+        <Divider />
       </div>
     </div>
 
