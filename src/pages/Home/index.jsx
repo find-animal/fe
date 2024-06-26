@@ -13,7 +13,6 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [filterParams, setFilterParams] = useState();
-  const todayDate = new Date();
   const [ref, inView] = useInView();
 
   const fetchAnimalData = async () => {
@@ -22,6 +21,7 @@ export default function Home() {
         params: filterParams,
       });
       setAnimalList([...animalList, ...res.data.content]);
+      setPage((page) => page + 1);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -35,7 +35,6 @@ export default function Home() {
   useEffect(() => {
     if (inView) {
       fetchAnimalData();
-      setPage((prev) => prev + 1);
     }
   }, [inView]);
 
@@ -66,20 +65,13 @@ export default function Home() {
           {isLoading && <p>Loading...</p>}
           {animalList.map((list) => {
             return (
-              <div key={list.id}>
+              <div key={list.id} ref={ref}>
                 <AnimalInfo
-                  id={list.id}
-                  img={list.popFile}
-                  animalBreed={list.animalBreed}
-                  age={list.age.substring(0, 4)}
-                  sex={list.sex}
-                  uploadDate={list.noticeSdt}
-                  todayDate={todayDate}
+                  list={list}
                 />
               </div>
             );
           })}
-          <div ref={ref} style={{ height: "10px", width: "100%" }}></div>
         </div>
       </div>
       {isOpenFilter && (
