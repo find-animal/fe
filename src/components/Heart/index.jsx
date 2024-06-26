@@ -1,14 +1,21 @@
-import icon_heart from "../../assets/icon_heart.png";
-import icon_heart_like from "../../assets/icon_heart_like.png";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import styles from "./index.styles.module.css";
+import Toast from "../Toast";
+
+import icon_heart from "../../assets/icon_heart.png";
+import icon_heart_like from "../../assets/icon_heart_like.png";
 
 export default function Heart({ id, type }) {
   const userId = localStorage.getItem("userId");
   const [heartImg, setHeartImg] = useState(icon_heart);
+  const [toast, setToast] = useState("");
 
   const checkHeartStatus = async () => {
-    const endPoint = type === 'animal' ? `/animals/favorite/${userId}` : `/shelter/favorite/${userId}`
+    const endPoint =
+      type === "animal"
+        ? `/animals/favorite/${userId}`
+        : `/shelter/favorite/${userId}`;
     try {
       const res = await axios.get(`/api/v1/${endPoint}`);
       const datas = res.data;
@@ -33,14 +40,26 @@ export default function Heart({ id, type }) {
     if (heartImg === icon_heart) {
       axios
         .post(`/api/v1/user/${type}`, payload)
-        .then(() => setHeartImg(icon_heart_like))
+        .then(() => {
+          setHeartImg(icon_heart_like);
+          setToast("add");
+          setTimeout(() => {
+            setToast("");
+          }, 2000);
+        })
         .catch((err) => console.log(err));
     } else {
       axios
         .delete(`/api/v1/user/${type}`, {
           data: payload,
         })
-        .then(() => setHeartImg(icon_heart))
+        .then(() => {
+          setHeartImg(icon_heart);
+          setToast("delete");
+          setTimeout(() => {
+            setToast("");
+          }, 2000);
+        })
         .catch((err) => console.log(err));
     }
   };
@@ -52,11 +71,12 @@ export default function Heart({ id, type }) {
   return (
     <div>
       <img
-        className={"img"}
+        className={styles.img}
         src={heartImg}
         alt={"heart"}
         onClick={handleClick}
       />
+      {toast && <Toast toast={toast} />}
     </div>
   );
 }
