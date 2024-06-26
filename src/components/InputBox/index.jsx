@@ -1,28 +1,18 @@
 import styles from "./index.styles.module.css";
-import { useState } from "react";
 
-export default function InputBox({ type, text, onInputChange, buttonText }) {
-  const [inputType, setInputType] = useState(type);
-  const handleClickShow = (e) => {
-    e.preventDefault();
-    setInputType(inputType === "password" ? "text" : "password");
-  };
+export default function InputBox({ type, text, onInputChange }) {
   const handleChange = (e) => {
     onInputChange(e.target.value);
   };
+
   return (
     <div className={styles.container}>
       <input
         className={styles.input}
-        type={inputType}
+        type={type}
         placeholder={text}
         onChange={handleChange}
       />
-      {buttonText && (
-        <button className={styles.button} onClick={handleClickShow}>
-          {buttonText}
-        </button>
-      )}
     </div>
   );
 }

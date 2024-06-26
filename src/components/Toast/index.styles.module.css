@@ -2,7 +2,7 @@
     width: 65%;
     height: 35px;
     position: fixed;
-    bottom: 120px;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--color-black);

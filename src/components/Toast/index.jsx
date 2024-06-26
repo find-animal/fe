@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./index.styles.module.css";
 
-export default function Toast({toast}) {
+export default function Toast({ toast, setToast }) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setToast("");
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [toast, setToast]);
+
   return (
     <div className={styles.container}>
-      <p>{toast === "add" ? "관심목록에 추가되었습니다." : "관심목록에서 삭제되었습니다."}</p>
+      <p>{toast}</p>
     </div>
   );
 }

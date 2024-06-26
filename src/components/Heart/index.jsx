@@ -34,18 +34,16 @@ export default function Heart({ id, type }) {
     } else if (type === "shelter") {
       payload = { userId, shelterId: id };
     } else {
-      payload = { userId, id };
+      payload = {userId, id};
     }
+
 
     if (heartImg === icon_heart) {
       axios
         .post(`/api/v1/user/${type}`, payload)
         .then(() => {
           setHeartImg(icon_heart_like);
-          setToast("add");
-          setTimeout(() => {
-            setToast("");
-          }, 2000);
+          setToast("관심목록에 추가되었습니다.");
         })
         .catch((err) => console.log(err));
     } else {
@@ -55,10 +53,7 @@ export default function Heart({ id, type }) {
         })
         .then(() => {
           setHeartImg(icon_heart);
-          setToast("delete");
-          setTimeout(() => {
-            setToast("");
-          }, 2000);
+          setToast("관심목록에서 삭제되었습니다.");
         })
         .catch((err) => console.log(err));
     }
@@ -76,7 +71,7 @@ export default function Heart({ id, type }) {
         alt={"heart"}
         onClick={handleClick}
       />
-      {toast && <Toast toast={toast} />}
+      {toast && <Toast toast={toast} setToast={setToast}/>}
     </div>
   );
 }

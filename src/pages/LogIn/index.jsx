@@ -57,7 +57,7 @@ export default function LogIn() {
         <p>
           <Link to={"/signup"}>회원가입</Link>
         </p>
-        <p>비밀번호 찾기</p>
+        <p><Link to={"/find-password"}>비밀번호 찾기</Link></p>
       </div>
     </div>
   );
