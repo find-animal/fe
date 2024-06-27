@@ -1,14 +1,12 @@
 import React from "react";
 import styles from "./TermOfService.styles.module.css";
 import GoBackIcon from "../../../components/GoBackIcon";
+import Index from "../../../components/BackIconHeader";
 
 export default function TermOfService() {
     return (
         <div className={styles.container}>
-            <div className={styles.header}>
-                <GoBackIcon/>
-                <p>이용약관</p>
-            </div>
+            <Index text={'이용약관'}/>
             <div>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius laborum recusandae maxime earum dolore
                     eligendi culpa! Sapiente fugiat nihil ab cumque commodi. Dolores officiis est quibusdam expedita

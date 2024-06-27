@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import styles from "./index.styles.module.css";
-import Button from "../../components/Button";
-import GoBackIcon from "../../components/GoBackIcon";
+import BackIconHeader from "../../components/BackIconHeader";
 import InputBox from "../../components/InputBox";
+import Button from "../../components/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Toast from "../../components/Toast";
-import BackIconHeader from "../../components/BackIconHeader";
 
-export default function SignUp() {
+export default function FindPwd() {
   const navigate = useNavigate();
 
   const [id, setId] = useState("");
@@ -33,13 +32,13 @@ export default function SignUp() {
     } else {
       try {
         await axios.get("/api/v1/user/checkId", { params: { id } });
-        setError("");
-        setToast("사용가능한 아이디 입니다.");
-        setIsIdVerified(true);
+        setError("존재하지 않는 아이디입니다.");
+        setIsIdVerified(false);
       } catch (err) {
         if (err.response.data.code === 2001) {
-          setError("이미 사용중인 아이디 입니다.");
-          setIsIdVerified(false);
+          setError("");
+          setToast("아이디가 확인되었습니다.");
+          setIsIdVerified(true);
         } else {
           console.log(err);
         }
@@ -82,10 +81,17 @@ export default function SignUp() {
     }
   };
 
-  const handleSignUp = async (e) => {
+  const handleShow = (e) => {
     e.preventDefault();
+
+    setPasswordType((prev) => (prev === "password" ? "text" : "password"));
+  };
+
+  const handleFindPwd = async (e) => {
+    e.preventDefault();
+
     if (!isIdVerified) {
-      setError("아이디 중복확인을 완료해주세요.");
+      setError("아이디 확인을 완료해주세요.");
       return;
     } else if (!isEmailVerified || !isEmailCodeVerified) {
       setError("이메일 인증을 완료해주세요.");
@@ -101,32 +107,29 @@ export default function SignUp() {
     }
 
     try {
-      await axios.post("/api/v1/user/signup", {
+      await axios.patch("/api/v1/user/password", {
         id,
         password,
         email,
       });
-      setToast("회원가입 성공");
+      setToast("비밀번호가 성공적으로 변경되었습니다.");
       setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
+      if (err.code === 2002) {
+        setError("존재하지 않는 아이디입니다.");
+      }
       console.log(err);
     }
   };
 
-  const handleShow = (e) => {
-    e.preventDefault();
-
-    setPasswordType((prev) => (prev === "password" ? "text" : "password"));
-  };
-
   return (
     <div className={styles.container}>
-      <BackIconHeader text={"회원가입"} />
-      <form onSubmit={handleSignUp}>
+      <BackIconHeader text={"비밀번호 변경"} />
+      <form onSubmit={handleFindPwd}>
         <div className={styles.input_container}>
           <InputBox type="text" text="아이디" onInputChange={setId} />
           <button className={styles.button} onClick={handleIdCheck}>
-            중복확인
+            확인
           </button>
         </div>
         <div className={styles.input_container}>
@@ -168,7 +171,7 @@ export default function SignUp() {
           </button>
         </div>
         <p className={styles.warning}>{error}</p>
-        <Button text="회원가입" type="submit" />
+        <Button text={"확인"} type="submit" />
       </form>
       {toast && <Toast toast={toast} setToast={setToast} />}
     </div>

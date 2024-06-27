@@ -17,6 +17,7 @@ import LogIn from "../pages/LogIn";
 import SignUp from "../pages/SignUp";
 import NotFound from "../pages/NotFound";
 import { PrivateRoute } from "./PrivateRoute";
+import FindPwd from "../pages/FindPwd";
 
 export default function Routers() {
   return (
@@ -24,6 +25,7 @@ export default function Routers() {
       <Route>
         <Route path="/login" element={<LogIn />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/find-password" element={<FindPwd />}></Route>
       </Route>
       <Route element={<PrivateRoute />}>
         <Route path="/" element={<Home />}></Route>

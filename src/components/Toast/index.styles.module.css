@@ -1,8 +1,8 @@
 .container {
-    width: 65%;
+    width: 80%;
     height: 35px;
     position: fixed;
-    bottom: 5%;
+    top: 3%;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--color-black);
