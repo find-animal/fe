@@ -1,10 +1,9 @@
 import React from "react";
 import styles from "./index.styles.module.css";
-import icon_bell from "../../assets/icon_bell.png";
 import Header from "../../components/Header";
 import icon_account from "../../assets/icon_account.png";
 import icon_password from "../../assets/icon_password.png";
-import icon_bell_black from "../../assets/icon_bell_black.png";
+import icon_bell from "../../assets/icon_bell.png";
 import icon_star from "../../assets/icon_star.png";
 import icon_notice from "../../assets/icon_notice.png";
 import MyPageList from "./_components/MyPageList/MyPageList";
@@ -14,7 +13,7 @@ export default function MyPage() {
   const accountsLists = [
     { icon: icon_account, name: "회원 정보", path: "/account-information" },
     { icon: icon_password, name: "비밀번호 변경", path: "/change-password" },
-    { icon: icon_bell_black, name: "공지사항", path: "/notice" },
+    { icon: icon_bell, name: "공지사항", path: "/notice" },
   ];
   const moreLists = [
     { icon: icon_star, name: "앱설정", path: "/setting" },
@@ -31,7 +30,6 @@ export default function MyPage() {
     <div className={styles.container}>
       <Header
         title={"아이디"}
-        img={icon_bell}
         color={"white"}
         bgColor={"var(--color-accent)"}
       />

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import icon_bell_accent from "../../assets/icon_bell_accent.png";
 import Header from "../../components/Header";
 import styles from "./index.styles.module.css";
 import AnimalInfo from "./_components/AnimalInfo/AnimalInfo";
@@ -53,7 +52,7 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <div className={styles.header}>
-          <Header title={"find-animal"} img={icon_bell_accent} />
+          <Header title={"find-animal"} />
           <div className={styles.button_container}>
             <button className={styles.button}>+ 관심 보호소 등록</button>
             <button className={styles.button} onClick={handleOpenFilter}>
@@ -66,9 +65,7 @@ export default function Home() {
           {animalList.map((list) => {
             return (
               <div key={list.id} ref={ref}>
-                <AnimalInfo
-                  list={list}
-                />
+                <AnimalInfo list={list} />
               </div>
             );
           })}

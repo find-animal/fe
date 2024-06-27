@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.styles.module.css";
 import Header from "../../components/Header";
-import icon_bell_accent from "../../assets/icon_bell_accent.png";
 import axios from "axios";
 import ShelterInfo from "../../components/ShelterInfo";
 import { useInView } from "react-intersection-observer";
@@ -36,7 +35,7 @@ export default function Shelters() {
 
   return (
     <div>
-      <Header title={"보호소 찾기"} img={icon_bell_accent} />
+      <Header title={"보호소 찾기"} />
       <div className={styles.container}>
         <h3>보호소 목록</h3>
         {isLoading && <p>Loading...</p>}
