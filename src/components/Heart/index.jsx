@@ -6,7 +6,7 @@ import Toast from "../Toast";
 import icon_heart from "../../assets/icon_heart.png";
 import icon_heart_like from "../../assets/icon_heart_like.png";
 
-export default function Heart({ id, type }) {
+export default function Heart({ id, type, setUpdate, isCheckedHeart = false, isLiked = false }) {
   const userId = localStorage.getItem("userId");
   const [heartImg, setHeartImg] = useState(icon_heart);
   const [toast, setToast] = useState("");
@@ -34,9 +34,8 @@ export default function Heart({ id, type }) {
     } else if (type === "shelter") {
       payload = { userId, shelterId: id };
     } else {
-      payload = {userId, id};
+      payload = { userId, id };
     }
-
 
     if (heartImg === icon_heart) {
       axios
@@ -54,13 +53,15 @@ export default function Heart({ id, type }) {
         .then(() => {
           setHeartImg(icon_heart);
           setToast("관심목록에서 삭제되었습니다.");
+          setUpdate((prev) => !prev);
         })
         .catch((err) => console.log(err));
     }
   };
 
   useEffect(() => {
-    checkHeartStatus();
+    isCheckedHeart && checkHeartStatus(); // 보호소 상세페이지, 동물 상세페이지만 확인 필요
+    setHeartImg(isLiked ? icon_heart_like : icon_heart)
   }, [id, type]);
 
   return (
@@ -71,7 +72,7 @@ export default function Heart({ id, type }) {
         alt={"heart"}
         onClick={handleClick}
       />
-      {toast && <Toast toast={toast} setToast={setToast}/>}
+      {toast && <Toast toast={toast} setToast={setToast} />}
     </div>
   );
 }

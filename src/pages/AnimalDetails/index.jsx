@@ -12,7 +12,7 @@ export default function AnimalDetails() {
 
   useEffect(() => {
     fetchAnimalDetails();
-  }, [id]);
+  }, []);
 
   const fetchAnimalDetails = async () => {
     try {

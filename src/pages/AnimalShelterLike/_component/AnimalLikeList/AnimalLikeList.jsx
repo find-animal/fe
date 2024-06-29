@@ -3,8 +3,8 @@ import styles from "./AnimalLikeList.styles.module.css";
 import Heart from "../../../../components/Heart";
 import { Link } from "react-router-dom";
 
-export default function AnimalLikeList({ animal }) {
-  const { id, popFile, animalBreed, specialMark } = animal;
+export default function AnimalLikeList({ list, setUpdate }) {
+  const { id, popFile, animalBreed, specialMark } = list;
   return (
     <div className={styles.container}>
       <Link to={`/animals/${id}`}>
@@ -16,7 +16,7 @@ export default function AnimalLikeList({ animal }) {
           <p>{specialMark}</p>
         </div>
       </Link>
-      <Heart id={id} type={"animal"}/>
+      <Heart id={id} type={"animal"} setUpdate={setUpdate} isLiked={true}/>
     </div>
   );
 }

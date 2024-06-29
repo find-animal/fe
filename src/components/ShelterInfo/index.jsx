@@ -3,20 +3,25 @@ import styles from "./index.styles.module.css";
 import Divider from "../Divider";
 import Heart from "../Heart";
 
-export default function ShelterInfo({ list }) {
+export default function ShelterInfo({ list, setUpdate, isLiked }) {
   const { id, careNm, careAddr, careTel } = list;
 
   return (
     <div className={styles.container}>
       <div className={styles.list_container}>
         <div className={styles.text_container}>
-          <h4>보호소 이름 : {careNm ? careNm : '정보없음'}</h4>
-          <p>보호소 주소 : {careAddr ? careAddr : '정보없음'}</p>
-          <p>전화번호 : {careTel ? careTel : '정보없음'}</p>
+          <h4>보호소 이름 : {careNm ? careNm : "정보없음"}</h4>
+          <p>보호소 주소 : {careAddr ? careAddr : "정보없음"}</p>
+          <p>전화번호 : {careTel ? careTel : "정보없음"}</p>
         </div>
-        <Heart id={id} type={'shelter'} />
+        <Heart
+          id={id}
+          type={"shelter"}
+          isLiked={isLiked}
+          setUpdate={setUpdate}
+        />
       </div>
-      <Divider/>
+      <Divider />
     </div>
   );
 }

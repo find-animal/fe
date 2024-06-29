@@ -6,10 +6,11 @@ import axios from "axios";
 import Divider from "../../components/Divider";
 import ShelterInfo from "../../components/ShelterInfo";
 
-export default function AnimalLike() {
+export default function AnimalShelterLike() {
   const [animalLikeLists, setAnimalLikeLists] = useState([]);
   const [shelterLikeLists, setShelterLikeLists] = useState([]);
   const userId = localStorage.getItem("userId");
+  const [update, setUpdate] = useState(false);
 
   const fetchAnimalLikeList = async () => {
     try {
@@ -32,7 +33,7 @@ export default function AnimalLike() {
   useEffect(() => {
     fetchAnimalLikeList();
     fetchShelterLikeList();
-  }, []);
+  }, [update]);
 
   return (
     <div className={styles.container}>
@@ -43,7 +44,7 @@ export default function AnimalLike() {
           {animalLikeLists.length === 0 ? (
             <p>관심 동물을 등록해주세요.</p>
           ) : (
-            animalLikeLists.map((list) => <AnimalLikeList animal={list} />)
+            animalLikeLists.map((list) => <AnimalLikeList list={list} setUpdate={setUpdate}/>)
           )}
         </div>
         <Divider />
@@ -52,7 +53,7 @@ export default function AnimalLike() {
           {shelterLikeLists.length === 0 ? (
             <p>관심 보호소를 등록해주세요.</p>
           ) : (
-            shelterLikeLists.map((list) => <ShelterInfo list={list} />)
+            shelterLikeLists.map((list) => <ShelterInfo list={list} isLiked={true} setUpdate={setUpdate}/>)
           )}
         </div>
         <Divider />
