@@ -18,6 +18,7 @@ import SignUp from "../pages/SignUp";
 import NotFound from "../pages/NotFound";
 import { PrivateRoute } from "./PrivateRoute";
 import FindPwd from "../pages/FindPwd";
+import ShelterDetails from "../pages/ShelterDetails";
 
 export default function Routers() {
   return (
@@ -32,6 +33,7 @@ export default function Routers() {
         <Route path="/animals" element={<Animals />}></Route>
         <Route path="/animals/:id" element={<AnimalDetails />}></Route>
         <Route path="/shelters" element={<Shelters />}></Route>
+        <Route path="/shelter/:id" element={<ShelterDetails />}></Route>
         <Route path="/informations" element={<Informations />}></Route>
         <Route path="/mypage" element={<MyPage />}></Route>
         <Route path="/mypage/account-information" element={<AccInform />} />

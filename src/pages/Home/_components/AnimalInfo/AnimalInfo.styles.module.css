@@ -1,7 +1,3 @@
-.link {
-  color: var(--color-black);
-}
-
 .list {
   display: flex;
   flex-direction: row;

@@ -11,7 +11,7 @@ export default function AnimalInfo({ list }) {
   const ageCalc = age.substring(0, 4);
 
   return (
-    <Link to={`/animals/${id}`} className={styles.link}>
+    <Link to={`/animals/${id}`}>
       <div className={styles.list}>
         <div className={styles.img_box}>
           <img src={popFile} alt={"animal"} />

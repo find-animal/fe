@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.styles.module.css";
 import Header from "../../components/Header";
-import AnimalLikeList from "./_component/AnimalLikeList/AnimalLikeList";
+import AnimalLikeList from "./_components/AnimalLikeList/AnimalLikeList";
 import axios from "axios";
 import Divider from "../../components/Divider";
 import ShelterInfo from "../../components/ShelterInfo";

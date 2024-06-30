@@ -6,6 +6,9 @@
 .list_container {
     display: flex;
 }
+.list_container > a{
+    width: 100%;
+}
 
 .text_container {
     width: 100%;

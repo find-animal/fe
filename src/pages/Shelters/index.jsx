@@ -10,6 +10,17 @@ export default function Shelters() {
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [ref, inView] = useInView();
+  const [shelterLikeLists, setShelterLikeLists] = useState([]);
+  const userId = localStorage.getItem("userId");
+
+  const fetchShelterLikeList = async () => {
+    try {
+      const res = await axios(`/api/v1/shelter/favorite/${userId}`);
+      setShelterLikeLists(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const fetchShelterData = async () => {
     try {
@@ -25,6 +36,9 @@ export default function Shelters() {
 
   useEffect(() => {
     fetchShelterData();
+    if (page === 0) {
+      fetchShelterLikeList();
+    }
   }, []);
 
   useEffect(() => {
@@ -39,11 +53,13 @@ export default function Shelters() {
       <div className={styles.container}>
         <h3>보호소 목록</h3>
         {isLoading && <p>Loading...</p>}
-        {shelters.map((list) => (
-          <div key={list.id} ref={ref}>
-            <ShelterInfo list={list} />
-          </div>
-        ))}
+        {shelters.map((list) => {
+          return (
+            <div key={list.id} ref={ref}>
+              <ShelterInfo list={list} shelterLikeLists={shelterLikeLists} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
