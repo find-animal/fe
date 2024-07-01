@@ -124,7 +124,7 @@ export default function FindPwd() {
 
   return (
     <div className={styles.container}>
-      <BackIconHeader text={"비밀번호 변경"} />
+      <BackIconHeader text={"비밀번호 찾기"} />
       <form onSubmit={handleFindPwd}>
         <div className={styles.input_container}>
           <InputBox type="text" text="아이디" onInputChange={setId} />
@@ -173,7 +173,7 @@ export default function FindPwd() {
         <p className={styles.warning}>{error}</p>
         <Button text={"확인"} type="submit" />
       </form>
-      {toast && <Toast toast={toast} setToast={setToast} />}
+      {toast && <Toast toast={toast} setToast={setToast} bottom={"5%"} />}
     </div>
   );
 }

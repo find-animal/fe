@@ -56,7 +56,6 @@ export default function AnimalShelterLike() {
             shelterLikeLists.map((list) => <ShelterInfo list={list} isLiked={true} setUpdate={setUpdate}/>)
           )}
         </div>
-        <Divider />
       </div>
     </div>
   );

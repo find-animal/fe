@@ -5,6 +5,7 @@ import AnimalInfo from "./_components/AnimalInfo/AnimalInfo";
 import axios from "axios";
 import { useInView } from "react-intersection-observer";
 import AnimalFilter from "../../components/AnimalFilter";
+import {useNavigate} from "react-router-dom";
 
 export default function Home() {
   const [animalList, setAnimalList] = useState([]);
@@ -13,6 +14,8 @@ export default function Home() {
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [filterParams, setFilterParams] = useState();
   const [ref, inView] = useInView();
+
+  const navigate = useNavigate();
 
   const fetchAnimalData = async () => {
     try {
@@ -37,6 +40,10 @@ export default function Home() {
     }
   }, [inView]);
 
+  const handleGotoShelters = () => {
+    navigate("/shelters");
+  }
+
   const handleOpenFilter = () => {
     setIsOpenFilter(true);
   };
@@ -54,7 +61,7 @@ export default function Home() {
         <div className={styles.header}>
           <Header title={"find-animal"} />
           <div className={styles.button_container}>
-            <button className={styles.button}>+ 관심 보호소 등록</button>
+            <button className={styles.button} onClick={handleGotoShelters}>+ 관심 보호소 등록</button>
             <button className={styles.button} onClick={handleOpenFilter}>
               Filter
             </button>
