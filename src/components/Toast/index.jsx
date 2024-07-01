@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./index.styles.module.css";
 
-export default function Toast({ toast, setToast }) {
+export default function Toast({ toast, setToast, bottom = '17%' }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setToast("");
@@ -11,7 +11,7 @@ export default function Toast({ toast, setToast }) {
   }, [toast, setToast]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{ bottom: bottom }}>
       <p>{toast}</p>
     </div>
   );

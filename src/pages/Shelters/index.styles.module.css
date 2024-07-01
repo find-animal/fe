@@ -1,8 +1,15 @@
 .container {
-    padding: 0 16px 0 16px;
-    overflow-y: auto;
+    height: 100%;
     text-align: left;
+    display: flex;
+    flex-direction: column;
 }
-.container > h3 {
-    margin-bottom: 24px;
+.header > h3 {
+    margin: 0 0 16px 16px;
+}
+
+.shelters_container {
+    overflow-y: auto;
+    padding: 0 16px 0 16px;
+
 }

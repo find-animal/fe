@@ -48,10 +48,12 @@ export default function Shelters() {
   }, [inView]);
 
   return (
-    <div>
-      <Header title={"보호소 찾기"} />
-      <div className={styles.container}>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <Header title={"보호소 찾기"} />
         <h3>보호소 목록</h3>
+      </div>
+      <div className={styles.shelters_container}>
         {isLoading && <p>Loading...</p>}
         {shelters.map((list) => {
           return (

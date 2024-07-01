@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.styles.module.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -44,25 +44,27 @@ export default function ShelterDetails() {
   return (
     <div className={styles.container}>
       <BackIconHeader text={"상세정보"} />
-      <div className={styles.title}>
-        <p>{careNm}</p>
-        <Heart id={id} type={"shelter"} isCheckedHeart={true} />
-      </div>
-      <div className={styles.contents}>
-        <p>전화번호: {careTel ? careTel : "없음"}</p>
-        <p>책임자 이름: {chargeNm ? chargeNm : "없음"}</p>
-        <p>사무실 전화번호: {officeTel ? officeTel : "없음"}</p>
-      </div>
-      <Divider />
-      <div className={styles.map_container}>
-        <div className={styles.map_title}>
-          <p>찾아 오시는 길</p>
-          <button onClick={handleCopyAddress}>주소복사</button>
+      <div className={styles.contents_container}>
+        <div className={styles.title}>
+          <p>{careNm}</p>
+          <Heart id={id} type={"shelter"} isCheckedHeart={true} />
         </div>
-        <p>{careAddr ? careAddr : "없음"}</p>
+        <div className={styles.contents}>
+          <p>전화번호: {careTel ? careTel : "없음"}</p>
+          <p>책임자 이름: {chargeNm ? chargeNm : "없음"}</p>
+          <p>사무실 전화번호: {officeTel ? officeTel : "없음"}</p>
+        </div>
+        <Divider />
+        <div className={styles.map_container}>
+          <div className={styles.map_title}>
+            <p>찾아 오시는 길</p>
+            <button onClick={handleCopyAddress}>주소복사</button>
+          </div>
+          <p>{careAddr ? careAddr : "없음"}</p>
+        </div>
+        {careAddr && <KakaoMap careAddr={shelterDetails.careAddr} />}
       </div>
-      {careAddr && <KakaoMap careAddr={shelterDetails.careAddr} />}
-      {toast && <Toast  toast={toast} setToast={setToast} />}
+      {toast && <Toast toast={toast} setToast={setToast} />}
     </div>
   );
 }
