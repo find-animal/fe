@@ -3,10 +3,9 @@ import styles from "./MyPageList.styles.module.css";
 import { Link } from "react-router-dom";
 import icon_link from '../../../../assets/icon_link.png'
 
-export default function MyPageList({title, myPageLists}) {
+export default function MyPageList({myPageLists}) {
   return (
-    <div>
-      <h3>{title}</h3>
+    <div className={styles.container}>
       <ul className={styles.list_container}>
         {myPageLists.map((list) => (
           <Link to={`/mypage${list.path}`}>
