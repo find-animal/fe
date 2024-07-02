@@ -28,7 +28,7 @@
 
 .uploadedDate {
   color: var(--color-accent);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   position:absolute;
   bottom: 0;
 }

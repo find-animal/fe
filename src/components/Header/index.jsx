@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./index.styles.module.css";
 
-export default function Header({ title, color, bgColor }) {
+export default function Header({ title, color = "var(--color-black)", bgColor = "var(--color-white)" }) {
   return (
     <div
       className={styles.header}

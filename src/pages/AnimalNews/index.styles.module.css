@@ -1,0 +1,11 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.contents_container {
+    padding: 0 16px 0 16px;
+    overflow: auto;
+}

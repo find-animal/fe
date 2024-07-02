@@ -1,0 +1,22 @@
+.container {
+    cursor: pointer;
+}
+
+.contents_container {
+    margin-bottom: 8px;
+}
+.contents_container > p:nth-child(1) {
+    margin-top: 16px;
+    font-weight: var(--font-weight);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.contents_container > p:nth-child(2) {
+    font-size: var(--font-size-sm);
+    margin: 4px 0 4px;
+}
+.contents_container > span {
+    color: var(--color-gray);
+    font-size: var(--font-size-sm);
+}

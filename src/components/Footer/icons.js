@@ -14,8 +14,8 @@ export const icons = [
     src: icon_book,
     clicked_src: icon_book_clicked,
     alt: "book",
-    link: "/informations",
-    text: "소식",
+    link: "/animal-news",
+    text: "동물 소식",
   },
   {
     src: icon_shelter,
