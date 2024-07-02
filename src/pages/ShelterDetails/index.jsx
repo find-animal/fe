@@ -58,7 +58,7 @@ export default function ShelterDetails() {
         <div className={styles.map_container}>
           <div className={styles.map_title}>
             <p>찾아 오시는 길</p>
-            <button onClick={handleCopyAddress}>주소복사</button>
+            {careAddr && <button onClick={handleCopyAddress}>주소복사</button>}
           </div>
           <p>{careAddr ? careAddr : "없음"}</p>
         </div>
