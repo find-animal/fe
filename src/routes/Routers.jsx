@@ -11,7 +11,6 @@ import Home from "../pages/Home";
 import AnimalDetails from "../pages/AnimalDetails";
 import Animals from "../pages/AnimalShelterLike";
 import Shelters from "../pages/Shelters";
-import Informations from "../pages/Informations/Informations";
 import AccInform from "../pages/MyPage/AccInform/AccInform";
 import LogIn from "../pages/LogIn";
 import SignUp from "../pages/SignUp";
@@ -19,6 +18,7 @@ import NotFound from "../pages/NotFound";
 import { PrivateRoute } from "./PrivateRoute";
 import FindPwd from "../pages/FindPwd";
 import ShelterDetails from "../pages/ShelterDetails";
+import AnimalNews from "../pages/AnimalNews";
 
 export default function Routers() {
   return (
@@ -34,7 +34,7 @@ export default function Routers() {
         <Route path="/animals/:id" element={<AnimalDetails />}></Route>
         <Route path="/shelters" element={<Shelters />}></Route>
         <Route path="/shelter/:id" element={<ShelterDetails />}></Route>
-        <Route path="/informations" element={<Informations />}></Route>
+        <Route path="/animal-news" element={<AnimalNews />}></Route>
         <Route path="/mypage" element={<MyPage />}></Route>
         <Route path="/mypage/account-information" element={<AccInform />} />
         <Route path="/mypage/setting" element={<Setting />} />
