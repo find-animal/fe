@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./index.styles.module.css";
 import Header from "../../components/Header";
 import icon_account from "../../assets/icon_account.png";
@@ -8,38 +8,42 @@ import icon_star from "../../assets/icon_star.png";
 import icon_notice from "../../assets/icon_notice.png";
 import MyPageList from "./_components/MyPageList/MyPageList";
 import { useNavigate } from "react-router-dom";
+import Toast from "../../components/Toast";
 
 export default function MyPage() {
-  const accountsLists = [
+  const myPageLists = [
     { icon: icon_account, name: "회원 정보", path: "/account-information" },
     { icon: icon_password, name: "비밀번호 변경", path: "/change-password" },
     { icon: icon_bell, name: "공지사항", path: "/notice" },
-  ];
-  const moreLists = [
-    { icon: icon_star, name: "앱설정", path: "/setting" },
     { icon: icon_notice, name: "이용약관", path: "/term-of-service" },
   ];
+
   const navigate = useNavigate();
+  const [toast, setToast] = useState("");
 
   const handleClickLogOut = () => {
     localStorage.clear();
-    navigate("/login");
+    setToast("로그아웃 되었습니다.");
+    setTimeout(() => navigate("/login"), 2000);
   };
 
   return (
     <div className={styles.container}>
-      <Header
-        title={"아이디"}
-        color={"white"}
-        bgColor={"var(--color-accent)"}
-      />
+      <div className={styles.header_container}>
+        <Header
+          title={"마이페이지"}
+          color={"white"}
+          bgColor={"var(--color-accent)"}
+        />
+        <p>"00님 환영합니다."</p>
+      </div>
       <div className={styles.contents_container}>
-        <MyPageList title={"Account"} myPageLists={accountsLists} />
-        <MyPageList title={"More"} myPageLists={moreLists} />
+        <MyPageList title={"Account"} myPageLists={myPageLists} />
       </div>
       <p className={styles.logOut} onClick={handleClickLogOut}>
         로그아웃
       </p>
+      {toast && <Toast toast={toast} setToast={setToast} />}
     </div>
   );
 }
