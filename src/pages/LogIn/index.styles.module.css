@@ -12,6 +12,7 @@
 .warning {
     font-size: var(--font-size-sm);
     color: red;
+    margin: -4px 0 20px 0;
 }
 
 .link_container {

@@ -84,15 +84,8 @@ export default function SignUp() {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    if (!isIdVerified) {
-      setError("아이디 중복확인을 완료해주세요.");
-      return;
-    } else if (!isEmailVerified || !isEmailCodeVerified) {
-      setError("이메일 인증을 완료해주세요.");
-      return;
-    } else if (
-      !/(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\W)(?=\S+$).{8,16}/.test(password)
-    ) {
+
+    if (!/(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\W)(?=\S+$).{8,16}/.test(password)) {
       setError("비밀번호는 8~16자 영문 대소문자, 숫자, 특수문자를 사용하세요.");
       return;
     } else if (password !== confirmPassword) {
@@ -107,7 +100,7 @@ export default function SignUp() {
         email,
       });
       setToast("회원가입 성공");
-      setTimeout(() => navigate("/login"), 2000);
+      setTimeout(() => navigate("/login"), 1000);
     } catch (err) {
       console.log(err);
     }
@@ -119,10 +112,16 @@ export default function SignUp() {
     setPasswordType((prev) => (prev === "password" ? "text" : "password"));
   };
 
+  const isButtonDisabled = !(
+    isIdVerified &&
+    isEmailVerified &&
+    isEmailCodeVerified
+  );
+
   return (
     <div className={styles.container}>
       <BackIconHeader text={"회원가입"} />
-      <form onSubmit={handleSignUp}>
+      <form className={styles.contents_container} onSubmit={handleSignUp}>
         <div className={styles.input_container}>
           <InputBox type="text" text="아이디" onInputChange={setId} />
           <button className={styles.button} onClick={handleIdCheck}>
@@ -168,9 +167,9 @@ export default function SignUp() {
           </button>
         </div>
         <p className={styles.warning}>{error}</p>
-        <Button text="회원가입" type="submit" />
+        <Button text="확인" type="submit" disabled={isButtonDisabled} />
       </form>
-      {toast && <Toast toast={toast} setToast={setToast} />}
+      {toast && <Toast toast={toast} setToast={setToast} bottom={"5%"} />}
     </div>
   );
 }
