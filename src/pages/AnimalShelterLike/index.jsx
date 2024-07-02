@@ -44,7 +44,9 @@ export default function AnimalShelterLike() {
           {animalLikeLists.length === 0 ? (
             <p>관심 동물을 등록해주세요.</p>
           ) : (
-            animalLikeLists.map((list) => <AnimalLikeList list={list} setUpdate={setUpdate}/>)
+            animalLikeLists.map((list) => (
+              <AnimalLikeList list={list} setUpdate={setUpdate} />
+            ))
           )}
         </div>
         <Divider />
@@ -53,7 +55,14 @@ export default function AnimalShelterLike() {
           {shelterLikeLists.length === 0 ? (
             <p>관심 보호소를 등록해주세요.</p>
           ) : (
-            shelterLikeLists.map((list) => <ShelterInfo list={list} isLiked={true} setUpdate={setUpdate}/>)
+            shelterLikeLists.map((list) => (
+              <ShelterInfo
+                list={list}
+                isLiked={true}
+                setUpdate={setUpdate}
+                isHeart={true}
+              />
+            ))
           )}
         </div>
       </div>

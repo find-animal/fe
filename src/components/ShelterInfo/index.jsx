@@ -4,7 +4,12 @@ import Divider from "../Divider";
 import Heart from "../Heart";
 import { Link } from "react-router-dom";
 
-export default function ShelterInfo({ list, setUpdate, isLiked }) {
+export default function ShelterInfo({
+  list,
+  setUpdate,
+  isLiked,
+  isHeart = false,
+}) {
   const { id, careNm, careAddr, careTel } = list;
 
   return (
@@ -23,12 +28,14 @@ export default function ShelterInfo({ list, setUpdate, isLiked }) {
             </p>
           </div>
         </Link>
-        <Heart
-          id={id}
-          type={"shelter"}
-          isLiked={isLiked}
-          setUpdate={setUpdate}
-        />
+        {isHeart && (
+          <Heart
+            id={id}
+            type={"shelter"}
+            isLiked={isLiked}
+            setUpdate={setUpdate}
+          />
+        )}
       </div>
       <Divider />
     </div>
