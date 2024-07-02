@@ -7,5 +7,5 @@
 
 .contents_container {
     padding: 0 16px 0 16px;
-    overflow: auto;
+    overflow-y: auto;
 }
