@@ -1,5 +1,7 @@
 .container {
     cursor: pointer;
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .contents_container {
