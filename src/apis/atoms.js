@@ -19,3 +19,8 @@ export const adoptFilterState = atom({
   key: "adoptFilterState",
   default: false,
 });
+
+export const animalParams = atom( {
+  key: "animalParams",
+  default: {},
+})

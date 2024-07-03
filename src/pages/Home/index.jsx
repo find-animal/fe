@@ -6,13 +6,15 @@ import axios from "axios";
 import { useInView } from "react-intersection-observer";
 import AnimalFilter from "../../components/AnimalFilter";
 import {useNavigate} from "react-router-dom";
+import {useRecoilState} from "recoil";
+import {animalParams} from "../../apis/atoms";
 
 export default function Home() {
   const [animalList, setAnimalList] = useState([]);
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
-  const [filterParams, setFilterParams] = useState();
+  const [filterParams, setFilterParams] = useRecoilState(animalParams);
   const [ref, inView] = useInView();
 
   const navigate = useNavigate();
