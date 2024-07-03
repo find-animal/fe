@@ -1,21 +1,14 @@
 .container {
-  width: 250px;
+  width: calc(100% - 48px);
   height: 450px;
-  display: none;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid var(--color-accent);
-  border-radius: 20px;
+  bottom: 100%;
+  border-top: 1px solid var(--color-accent);
   background-color: var(--color-white);
+  border-radius: 20px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   z-index: 1;
   transition: 0.3s ease-in-out;
-}
-
-.open {
-  display: block;
 }

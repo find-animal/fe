@@ -1,5 +1,5 @@
 // AnimalFilter.js
-import React from "react";
+import React, {useEffect} from "react";
 import styles from "./index.styles.module.css";
 import Button from "../Button";
 import SexFilter from "./SexFilter/SexFilter";
@@ -16,7 +16,7 @@ import {
   animalParams,
 } from "../../apis/atoms";
 
-export default function AnimalFilter({ onApplyFilter }) {
+export default function AnimalFilter({ onApplyFilter, isOpenFilter }) {
   const [sexFilter, setSexFilter] = useRecoilState(sexFilterState);
   const [ageFilter, setAgeFilter] = useRecoilState(ageFilterState);
   const [locationFilter, setLocationFilter] = useRecoilState(locationFilterState);
@@ -59,7 +59,7 @@ export default function AnimalFilter({ onApplyFilter }) {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{bottom: (isOpenFilter ? "0" : "-100%")}}>
       <SexFilter />
       <AgeFilter />
       <LocationFilter />

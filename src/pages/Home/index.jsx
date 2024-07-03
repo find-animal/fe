@@ -80,13 +80,14 @@ export default function Home() {
           })}
         </div>
       </div>
-      {isOpenFilter && (
+
         <AnimalFilter
           onApplyFilter={handleApplyFilter}
           page={page}
           inView={inView}
+          isOpenFilter={isOpenFilter}
         />
-      )}
+
     </>
   );
 }
