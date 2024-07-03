@@ -4,9 +4,16 @@
     word-wrap: break-word;
 }
 
+.image_container {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
 .contents_container {
     margin-bottom: 8px;
 }
+
 .contents_container > p:nth-child(1) {
     margin-top: 16px;
     font-weight: var(--font-weight);
