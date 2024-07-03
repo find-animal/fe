@@ -21,7 +21,7 @@ export default function AnimalHeader({ animalId, image }) {
           <GoBackIcon />
         </div>
         <p className={styles.title}>상세정보</p>
-        <Heart id={animalId} type={'animal'}/>
+        <Heart id={animalId} type={'animal'} isCheckedHeart={true}/>
         <div className={styles.img_box} onClick={handleOpenModal}>
           <img src={image} alt={'animal'}/>
         </div>
