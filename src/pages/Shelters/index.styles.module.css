@@ -4,8 +4,16 @@
     display: flex;
     flex-direction: column;
 }
-.header > h3 {
-    margin: 0 0 16px 16px;
+.subheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 16px 16px 16px;
+}
+.subheader > p {
+    color: var(--color-accent);
+    font-weight: var(--font-weight);
+    cursor: pointer;
 }
 
 .shelters_container {

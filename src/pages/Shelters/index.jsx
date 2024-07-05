@@ -4,28 +4,31 @@ import Header from "../../components/Header";
 import axios from "axios";
 import ShelterInfo from "../../components/ShelterInfo";
 import { useInView } from "react-intersection-observer";
+import ShelterFilter from "../../components/ShelterFilter/ShelterFilter";
+import { useRecoilState } from "recoil";
+import { shelterFilterState } from "../../apis/atoms";
 
 export default function Shelters() {
-  const [shelters, setShelters] = useState([]);
+  const [shelterList, setShelterList] = useState([]);
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [ref, inView] = useInView();
-  const [shelterLikeLists, setShelterLikeLists] = useState([]);
-  const userId = localStorage.getItem("userId");
-
-  const fetchShelterLikeList = async () => {
-    try {
-      const res = await axios(`/api/v1/shelter/favorite/${userId}`);
-      setShelterLikeLists(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const [locationParams, setLocationParams] =
+    useRecoilState(shelterFilterState);
+  const [isOpenFilter, setIsOpenFilter] = useState(false);
 
   const fetchShelterData = async () => {
+    let params = { pageNo: page };
+
+    if (locationParams.length > 0) {
+      params.cityProvinceIds = locationParams.join(",");
+    }
+
     try {
-      const res = await axios.get(`/api/v1/shelter/all?pageNo=${page}`);
-      setShelters([...shelters, ...res.data.content]);
+      const res = await axios.get(`/api/v1/shelter/all`, {
+        params,
+      });
+      setShelterList([...shelterList, ...res.data.content]);
       setPage((page) => page + 1);
     } catch (err) {
       console.log(err);
@@ -36,9 +39,6 @@ export default function Shelters() {
 
   useEffect(() => {
     fetchShelterData();
-    if (page === 0) {
-      fetchShelterLikeList();
-    }
   }, []);
 
   useEffect(() => {
@@ -47,21 +47,40 @@ export default function Shelters() {
     }
   }, [inView]);
 
+  const handleOpenFilter = () => {
+    setIsOpenFilter(true);
+  };
+
+  const handleApplyFilter = (filtered) => {
+    setPage(1);
+    setShelterList(filtered);
+    setIsOpenFilter(false);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <Header title={"보호소 찾기"} />
-        <h3>보호소 목록</h3>
+        <div className={styles.subheader}>
+          <h3>보호소 목록</h3>
+          <p onClick={handleOpenFilter}>Filter</p>
+        </div>
       </div>
       <div className={styles.shelters_container}>
         {isLoading && <p>Loading...</p>}
-        {shelters.map((list) => {
+        {shelterList.map((list) => {
           return (
             <div key={list.id} ref={ref}>
-              <ShelterInfo list={list} shelterLikeLists={shelterLikeLists} />
+              <ShelterInfo list={list} />
             </div>
           );
         })}
+      </div>
+      <div className={styles.filter_container}>
+        <ShelterFilter
+          onApplyFilter={handleApplyFilter}
+          isOpenFilter={isOpenFilter}
+        />
       </div>
     </div>
   );

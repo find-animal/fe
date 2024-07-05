@@ -20,6 +20,11 @@ export const adoptFilterState = atom({
   default: false,
 });
 
+export const shelterFilterState = atom({
+  key: "shelterFilterState",
+  default: [],
+});
+
 export const animalParams = atom( {
   key: "animalParams",
   default: {},

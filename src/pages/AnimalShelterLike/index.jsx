@@ -65,6 +65,7 @@ export default function AnimalShelterLike() {
             ))
           )}
         </div>
+        <Divider />
       </div>
     </div>
   );

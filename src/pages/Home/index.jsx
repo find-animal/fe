@@ -50,9 +50,8 @@ export default function Home() {
     setIsOpenFilter(true);
   };
 
-  const handleApplyFilter = (filtered, params) => {
+  const handleApplyFilter = (filtered) => {
     setPage(1);
-    setFilterParams(params);
     setAnimalList(filtered);
     setIsOpenFilter(false);
   };
@@ -80,7 +79,6 @@ export default function Home() {
           })}
         </div>
       </div>
-
         <AnimalFilter
           onApplyFilter={handleApplyFilter}
           page={page}
