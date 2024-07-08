@@ -98,10 +98,14 @@ export default function SignUp() {
         id,
         password,
         email,
+        code: emailCode,
       });
       setToast("회원가입 성공");
       setTimeout(() => navigate("/login"), 1000);
     } catch (err) {
+      if (err.response.data.code === 2006) {
+        setError("이미 사용중인 이메일입니다.");
+      }
       console.log(err);
     }
   };
