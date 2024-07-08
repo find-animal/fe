@@ -12,6 +12,7 @@
 }
 .subheader > p {
     color: var(--color-accent);
+    font-size: 18px;
     font-weight: var(--font-weight);
     cursor: pointer;
 }

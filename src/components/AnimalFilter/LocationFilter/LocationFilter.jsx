@@ -34,7 +34,7 @@ export default function LocationFilter() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <label className={styles.label}>위치</label>
       <ul className={styles.option_container}>
         {locationList.map((option, index) => (

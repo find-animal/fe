@@ -1,5 +1,5 @@
 // AnimalFilter.js
-import React, {useEffect} from "react";
+import React from "react";
 import styles from "./index.styles.module.css";
 import Button from "../Button";
 import SexFilter from "./SexFilter/SexFilter";

@@ -61,12 +61,9 @@ export default function Home() {
       <div className={styles.container}>
         <div className={styles.header}>
           <Header title={"find-animal"} />
-          <div className={styles.button_container}>
-            <button className={styles.button} onClick={handleGotoShelters}>+ 관심 보호소 등록</button>
             <button className={styles.button} onClick={handleOpenFilter}>
               Filter
             </button>
-          </div>
         </div>
         <div className={styles.list_container}>
           {isLoading && <p>Loading...</p>}
@@ -79,12 +76,12 @@ export default function Home() {
           })}
         </div>
       </div>
-        <AnimalFilter
-          onApplyFilter={handleApplyFilter}
-          page={page}
-          inView={inView}
-          isOpenFilter={isOpenFilter}
-        />
+      <AnimalFilter
+        onApplyFilter={handleApplyFilter}
+        page={page}
+        inView={inView}
+        isOpenFilter={isOpenFilter}
+      />
 
     </>
   );
