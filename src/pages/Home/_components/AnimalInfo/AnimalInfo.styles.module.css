@@ -12,10 +12,9 @@
   display: flex;
   justify-content: center; 
   background-color: var(--color-white);
-  overflow: hidden;
 }
 .img_box > img {
-  width: 300px;
+  width: 150px;
   height: auto;
 }
 
