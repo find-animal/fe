@@ -35,6 +35,10 @@ export default function ShelterFilter({ onApplyFilter, isOpenFilter }) {
     fetchLocationList();
   }, []);
 
+  const handleResetFilter = () => {
+    setSelected([]);
+  }
+
   const handleApplyFilters = async () => {
     try {
       let params = {};
@@ -74,6 +78,7 @@ export default function ShelterFilter({ onApplyFilter, isOpenFilter }) {
           </li>
         ))}
       </ul>
+      <p className={styles.reset} onClick={handleResetFilter}>초기화</p>
       <Button text={"적용"} onClick={handleApplyFilters} />
     </div>
   );

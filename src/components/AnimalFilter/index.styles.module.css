@@ -22,4 +22,5 @@
 }
 .bottom_container > p {
   color: var(--color-accent);
+  cursor: pointer;
 }
