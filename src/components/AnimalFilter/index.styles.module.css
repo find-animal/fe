@@ -12,3 +12,14 @@
   z-index: 1;
   transition: 0.3s ease-in-out;
 }
+
+.bottom_container {
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.bottom_container > p {
+  color: var(--color-accent);
+}

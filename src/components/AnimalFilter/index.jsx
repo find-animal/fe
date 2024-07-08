@@ -58,12 +58,22 @@ export default function AnimalFilter({ onApplyFilter, isOpenFilter }) {
     }
   };
 
+  const handleResetFilter = () => {
+    setSexFilter(null);
+    setAgeFilter({ startYear: "", endYear: "" });
+    setLocationFilter([]);
+    setAdoptFilter(false);
+  }
+
   return (
     <div className={styles.container} style={{bottom: (isOpenFilter ? "0" : "-100%")}}>
       <SexFilter />
       <AgeFilter />
       <LocationFilter />
-      <AdoptFilter />
+      <div className={styles.bottom_container}>
+        <AdoptFilter />
+        <p onClick={handleResetFilter}>초기화</p>
+      </div>
       <Button text={"적용"} onClick={handleApplyFilters} />
     </div>
   );
