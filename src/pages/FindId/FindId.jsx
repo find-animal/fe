@@ -60,7 +60,7 @@ export default function FindId() {
 
     try {
       const res = await axios.get("/api/v1/user/id", {
-        params: {email,}
+        params: {email, code: emailCode},
       });
       setId(res.data.id);
     } catch (err) {

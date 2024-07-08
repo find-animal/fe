@@ -28,6 +28,7 @@ export default function LogIn() {
 
             const decoded = jwtDecode(token);
             localStorage.setItem("userId", decoded.sub);
+            localStorage.setItem("id", decoded.id);
 
             setToast("로그인 성공했습니다.");
             setTimeout(() => navigate("/"), 1000);
@@ -62,6 +63,9 @@ export default function LogIn() {
       <div className={styles.link_container}>
         <p>
           <Link to={"/signup"}>회원가입</Link>
+        </p>
+        <p>
+          <Link to={"/find-id"}>아이디 찾기</Link>
         </p>
         <p>
           <Link to={"/find-password"}>비밀번호 찾기</Link>
