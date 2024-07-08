@@ -11,7 +11,7 @@ export default function MyPageList({myPageLists}) {
           <Link to={`/mypage${list.path}`}>
             <li className={styles.list}>
               <img className={styles.list_icon} src={list.icon} />
-              <span>{list.name}</span>
+              <span style={{ color: list.color }}>{list.name}</span>
               <img className={styles.icon_link} src={icon_link} />
             </li>
           </Link>
