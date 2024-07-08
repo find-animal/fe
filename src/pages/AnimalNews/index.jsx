@@ -13,7 +13,7 @@ export default function AnimalNews() {
 
   const fetchAnimalNews = async () => {
     try {
-      const res = await axios.get(`/api/v1/news/animal/${page}`);
+      const res = await axios.get(`/api/v1/news/animal?start=${page}`);
       setAnimalNewsList([...animalNewsList, ...res.data.items]);
       setPage(prev => prev + 1);
       setIsLoading(false);
