@@ -13,15 +13,17 @@ import {
   ageFilterState,
   locationFilterState,
   adoptFilterState,
-  animalParams,
+  animalParamsState,
 } from "../../apis/atoms";
 
 export default function AnimalFilter({ onApplyFilter, isOpenFilter }) {
   const [sexFilter, setSexFilter] = useRecoilState(sexFilterState);
   const [ageFilter, setAgeFilter] = useRecoilState(ageFilterState);
-  const [locationFilter, setLocationFilter] = useRecoilState(locationFilterState);
+  const [locationFilter, setLocationFilter] =
+    useRecoilState(locationFilterState);
   const [adoptFilter, setAdoptFilter] = useRecoilState(adoptFilterState);
-  const [params, setParams] = useRecoilState(animalParams);
+  const [params, setParams] = useRecoilState(animalParamsState);
+  const token = localStorage.getItem("token");
 
   const handleApplyFilters = async () => {
     const newParams = { ...params };
@@ -50,7 +52,12 @@ export default function AnimalFilter({ onApplyFilter, isOpenFilter }) {
     }
 
     try {
-      const res = await axios.get(`/api/v1/animals?page=0`, { params: newParams });
+      const res = await axios.get(`/api/v1/animals?page=0`, {
+        params: newParams,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       onApplyFilter(res.data.content, newParams);
       setParams(newParams);
     } catch (err) {
@@ -63,10 +70,13 @@ export default function AnimalFilter({ onApplyFilter, isOpenFilter }) {
     setAgeFilter({ startYear: "", endYear: "" });
     setLocationFilter([]);
     setAdoptFilter(false);
-  }
+  };
 
   return (
-    <div className={styles.container} style={{bottom: (isOpenFilter ? "0" : "-100%")}}>
+    <div
+      className={styles.container}
+      style={{ bottom: isOpenFilter ? "0" : "-100%" }}
+    >
       <SexFilter />
       <AgeFilter />
       <LocationFilter />

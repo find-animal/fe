@@ -7,15 +7,16 @@ import { useInView } from "react-intersection-observer";
 import AnimalFilter from "../../components/AnimalFilter";
 import {useNavigate} from "react-router-dom";
 import {useRecoilState} from "recoil";
-import {animalParams} from "../../apis/atoms";
+import {animalParamsState} from "../../apis/atoms";
 
 export default function Home() {
   const [animalList, setAnimalList] = useState([]);
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
-  const [filterParams, setFilterParams] = useRecoilState(animalParams);
+  const [filterParams, setFilterParams] = useRecoilState(animalParamsState);
   const [ref, inView] = useInView();
+  const token = localStorage.getItem("token");
 
   const navigate = useNavigate();
 
@@ -23,6 +24,9 @@ export default function Home() {
     try {
       const res = await axios.get(`/api/v1/animals?page=${page}`, {
         params: filterParams,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
       setAnimalList([...animalList, ...res.data.content]);
       setPage((page) => page + 1);
@@ -41,10 +45,6 @@ export default function Home() {
       fetchAnimalData();
     }
   }, [inView]);
-
-  const handleGotoShelters = () => {
-    navigate("/shelters");
-  }
 
   const handleOpenFilter = () => {
     setIsOpenFilter(true);
