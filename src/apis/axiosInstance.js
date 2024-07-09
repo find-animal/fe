@@ -30,6 +30,7 @@ axiosInstance.interceptors.response.use(
         data.message === "Expired JWT Token"
       ) {
         window.location.href = "/login";
+        localStorage.removeItem("token");
       }
     }
 
