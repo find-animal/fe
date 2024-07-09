@@ -2,32 +2,20 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import styles from "./index.styles.module.css";
 import AnimalInfo from "./_components/AnimalInfo/AnimalInfo";
-import axios from "axios";
 import { useInView } from "react-intersection-observer";
 import AnimalFilter from "../../components/AnimalFilter";
-import {useNavigate} from "react-router-dom";
-import {useRecoilState} from "recoil";
-import {animalParamsState} from "../../apis/atoms";
+import axiosInstance from "../../apis/axiosInstance";
 
 export default function Home() {
   const [animalList, setAnimalList] = useState([]);
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
-  const [filterParams, setFilterParams] = useRecoilState(animalParamsState);
   const [ref, inView] = useInView();
-  const token = localStorage.getItem("token");
-
-  const navigate = useNavigate();
 
   const fetchAnimalData = async () => {
     try {
-      const res = await axios.get(`/api/v1/animals?page=${page}`, {
-        params: filterParams,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axiosInstance.get(`/api/v1/animals?page=${page}`);
       setAnimalList([...animalList, ...res.data.content]);
       setPage((page) => page + 1);
       setIsLoading(false);

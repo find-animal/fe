@@ -6,7 +6,6 @@ import SexFilter from "./SexFilter/SexFilter";
 import AgeFilter from "./AgeFilter/AgeFilter";
 import LocationFilter from "./LocationFilter/LocationFilter";
 import AdoptFilter from "./AdoptFilter/AdoptFilter";
-import axios from "axios";
 import { useRecoilState } from "recoil";
 import {
   sexFilterState,
@@ -15,6 +14,7 @@ import {
   adoptFilterState,
   animalParamsState,
 } from "../../apis/atoms";
+import axiosInstance from "../../apis/axiosInstance";
 
 export default function AnimalFilter({ onApplyFilter, isOpenFilter }) {
   const [sexFilter, setSexFilter] = useRecoilState(sexFilterState);
@@ -52,11 +52,8 @@ export default function AnimalFilter({ onApplyFilter, isOpenFilter }) {
     }
 
     try {
-      const res = await axios.get(`/api/v1/animals?page=0`, {
+      const res = await axiosInstance.get(`/api/v1/animals?page=0`, {
         params: newParams,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
       });
       onApplyFilter(res.data.content, newParams);
       setParams(newParams);

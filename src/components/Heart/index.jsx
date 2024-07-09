@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import styles from "./index.styles.module.css";
 import Toast from "../Toast";
 
 import icon_heart from "../../assets/icon_heart.png";
 import icon_heart_like from "../../assets/icon_heart_like.png";
+import axiosInstance from "../../apis/axiosInstance";
 
-export default function Heart({ id, type, setUpdate, isCheckedHeart = false, isLiked = false }) {
+export default function Heart({
+  id,
+  type,
+  setUpdate,
+  isCheckedHeart = false,
+  isLiked = false,
+}) {
   const userId = localStorage.getItem("userId");
   const [heartImg, setHeartImg] = useState(icon_heart);
   const [toast, setToast] = useState("");
@@ -17,7 +23,7 @@ export default function Heart({ id, type, setUpdate, isCheckedHeart = false, isL
         ? `/animals/favorite/${userId}`
         : `/shelter/favorite/${userId}`;
     try {
-      const res = await axios.get(`/api/v1/${endPoint}`);
+      const res = await axiosInstance.get(`/api/v1/${endPoint}`);
       const datas = res.data;
       const isExist = datas.find((data) => Number(data.id) === Number(id));
       setHeartImg(isExist ? icon_heart_like : icon_heart);
@@ -38,7 +44,7 @@ export default function Heart({ id, type, setUpdate, isCheckedHeart = false, isL
     }
 
     if (heartImg === icon_heart) {
-      axios
+      axiosInstance
         .post(`/api/v1/user/${type}`, payload)
         .then(() => {
           setHeartImg(icon_heart_like);
@@ -46,7 +52,7 @@ export default function Heart({ id, type, setUpdate, isCheckedHeart = false, isL
         })
         .catch((err) => console.log(err));
     } else {
-      axios
+      axiosInstance
         .delete(`/api/v1/user/${type}`, {
           data: payload,
         })
@@ -61,7 +67,7 @@ export default function Heart({ id, type, setUpdate, isCheckedHeart = false, isL
 
   useEffect(() => {
     isCheckedHeart && checkHeartStatus(); // 보호소 상세페이지, 동물 상세페이지만 확인 필요
-    setHeartImg(isLiked ? icon_heart_like : icon_heart)
+    setHeartImg(isLiked ? icon_heart_like : icon_heart);
   }, [id, type]);
 
   return (

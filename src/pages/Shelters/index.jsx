@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.styles.module.css";
 import Header from "../../components/Header";
-import axios from "axios";
 import ShelterInfo from "../../components/ShelterInfo";
 import { useInView } from "react-intersection-observer";
 import ShelterFilter from "../../components/ShelterFilter/ShelterFilter";
 import { useRecoilState } from "recoil";
 import { shelterFilterState } from "../../apis/atoms";
+import axiosInstance from "../../apis/axiosInstance";
 
 export default function Shelters() {
   const [shelterList, setShelterList] = useState([]);
@@ -25,7 +25,7 @@ export default function Shelters() {
     }
 
     try {
-      const res = await axios.get(`/api/v1/shelter/all`, {
+      const res = await axiosInstance.get(`/api/v1/shelter/all`, {
         params,
       });
       setShelterList([...shelterList, ...res.data.content]);

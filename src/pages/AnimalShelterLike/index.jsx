@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import styles from "./index.styles.module.css";
 import Header from "../../components/Header";
 import AnimalLikeList from "./_components/AnimalLikeList/AnimalLikeList";
-import axios from "axios";
 import Divider from "../../components/Divider";
 import ShelterInfo from "../../components/ShelterInfo";
+import axiosInstance from "../../apis/axiosInstance";
 
 export default function AnimalShelterLike() {
   const [animalLikeLists, setAnimalLikeLists] = useState([]);
@@ -14,7 +14,7 @@ export default function AnimalShelterLike() {
 
   const fetchAnimalLikeList = async () => {
     try {
-      const res = await axios(`/api/v1/animals/favorite/${userId}`);
+      const res = await axiosInstance(`/api/v1/animals/favorite/${userId}`);
       setAnimalLikeLists(res.data);
     } catch (err) {
       console.log(err);
@@ -23,7 +23,7 @@ export default function AnimalShelterLike() {
 
   const fetchShelterLikeList = async () => {
     try {
-      const res = await axios(`/api/v1/shelter/favorite/${userId}`);
+      const res = await axiosInstance(`/api/v1/shelter/favorite/${userId}`);
       setShelterLikeLists(res.data);
     } catch (err) {
       console.log(err);

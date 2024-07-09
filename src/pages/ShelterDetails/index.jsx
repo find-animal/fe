@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.styles.module.css";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import BackIconHeader from "../../components/BackIconHeader";
 import Heart from "../../components/Heart";
 import Divider from "../../components/Divider";
 import KakaoMap from "./_components/KakaoMap";
 import Toast from "../../components/Toast";
+import axiosInstance from "../../apis/axiosInstance";
 
 export default function ShelterDetails() {
   const { id } = useParams();
   const [shelterDetails, setShelterDetails] = useState(null);
   const [toast, setToast] = useState("");
+  const token = localStorage.getItem("token");
 
   const fetchShelterDetails = async () => {
     try {
-      const res = await axios.get(`/api/v1/shelter/${id}`);
+      const res = await axiosInstance.get(`/api/v1/shelter/${id}`);
       setShelterDetails(res.data);
     } catch (err) {
       console.log(err);
@@ -32,13 +33,9 @@ export default function ShelterDetails() {
 
   const { careNm, careTel, chargeNm, officeTel, careAddr } = shelterDetails;
 
-  const handleCopyAddress = async () => {
-    try {
-      await navigator.clipboard.writeText(careAddr);
-      setToast("주소가 복사되었습니다.");
-    } catch (err) {
-      console.log(err);
-    }
+  const handleCopyAddress = () => {
+    navigator.clipboard.writeText(careAddr);
+    setToast("주소가 복사되었습니다.");
   };
 
   return (

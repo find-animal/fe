@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.styles.module.css";
-import axios from "axios";
 import AnimalNewsList from "./_components/AnimalNewsList";
 import Header from "../../components/Header";
 import {useInView} from "react-intersection-observer";
+import axiosInstance from "../../apis/axiosInstance";
 
 export default function AnimalNews() {
   const [page, setPage] = useState(1);
@@ -13,7 +13,7 @@ export default function AnimalNews() {
 
   const fetchAnimalNews = async () => {
     try {
-      const res = await axios.get(`/api/v1/news/animal?start=${page}`);
+      const res = await axiosInstance.get(`/api/v1/news/animal?start=${page}`);
       setAnimalNewsList([...animalNewsList, ...res.data.items]);
       setPage(prev => prev + 1);
       setIsLoading(false);

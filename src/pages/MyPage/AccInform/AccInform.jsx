@@ -1,27 +1,27 @@
-import React, {useEffect, useState} from 'react'
-import styles from './AccInform.styles.module.css'
+import React, { useEffect, useState } from "react";
+import styles from "./AccInform.styles.module.css";
 import BackIconHeader from "../../../components/BackIconHeader";
-import axios from "axios";
+import axiosInstance from "../../../apis/axiosInstance";
 
 export default function AccInform() {
-  const id = localStorage.getItem('id');
-  const [email, setEmail] = useState('');
+  const id = localStorage.getItem("id");
+  const [email, setEmail] = useState("");
 
   const getEmail = async () => {
     try {
-      const res = await axios.get("/api/v1/user/email", {params: {id}});
+      const res = await axiosInstance.get("/api/v1/user/email");
       setEmail(res.data.email);
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
-  useEffect(()=> {
+  useEffect(() => {
     getEmail();
-  }, [])
+  }, []);
   return (
     <div>
-      <BackIconHeader text={'회원 정보'}/>
+      <BackIconHeader text={"회원 정보"} />
       <div className={styles.contents}>
         <h3>아이디</h3>
         <p>{id}</p>
@@ -29,5 +29,5 @@ export default function AccInform() {
         <p>{email}</p>
       </div>
     </div>
-  )
+  );
 }

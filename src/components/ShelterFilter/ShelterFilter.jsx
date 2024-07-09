@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ShelterFilter.styles.module.css";
-import axios from "axios";
 import { useRecoilState } from "recoil";
 import { shelterFilterState } from "../../apis/atoms";
 import Button from "../Button";
+import { axiosInstance } from "../../apis/axiosInstance";
 
 export default function ShelterFilter({ onApplyFilter, isOpenFilter }) {
   const [locationList, setLocationList] = useState([]);
@@ -11,7 +11,7 @@ export default function ShelterFilter({ onApplyFilter, isOpenFilter }) {
 
   const fetchLocationList = async () => {
     try {
-      const res = await axios.get("/api/v1/cityProvince");
+      const res = await axiosInstance.get("/api/v1/cityProvince");
       setLocationList(res.data);
     } catch (err) {
       console.log(err);
@@ -37,18 +37,18 @@ export default function ShelterFilter({ onApplyFilter, isOpenFilter }) {
 
   const handleResetFilter = () => {
     setSelected([]);
-  }
+  };
 
   const handleApplyFilters = async () => {
     try {
       let params = {};
 
-      if(selected.length > 0) {
-        params = {cityProvinceIds : selected.join(",")};
+      if (selected.length > 0) {
+        params = { cityProvinceIds: selected.join(",") };
       }
 
-      const res = await axios.get(`/api/v1/shelter/all?pageNo=0`, {
-        params: params,
+      const res = await axiosInstance.get(`/api/v1/shelter/all?pageNo=0`, {
+        params,
       });
       onApplyFilter(res.data.content);
     } catch (err) {
@@ -57,7 +57,10 @@ export default function ShelterFilter({ onApplyFilter, isOpenFilter }) {
   };
 
   return (
-    <div className={styles.container} style={{bottom: (isOpenFilter ? "0" : "-100%")}}>
+    <div
+      className={styles.container}
+      style={{ bottom: isOpenFilter ? "0" : "-100%" }}
+    >
       <h3 className={styles.label}>지역</h3>
       <ul className={styles.option_container}>
         {locationList.map((option, index) => (
@@ -78,7 +81,9 @@ export default function ShelterFilter({ onApplyFilter, isOpenFilter }) {
           </li>
         ))}
       </ul>
-      <p className={styles.reset} onClick={handleResetFilter}>초기화</p>
+      <p className={styles.reset} onClick={handleResetFilter}>
+        초기화
+      </p>
       <Button text={"적용"} onClick={handleApplyFilters} />
     </div>
   );

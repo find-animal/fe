@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import styles from "./LocationFilter.styles.module.css";
 import {useRecoilState} from "recoil";
 import {locationFilterState} from "../../../apis/atoms";
-import axios from "axios";
+import axiosInstance from "../../../apis/axiosInstance";
 
 export default function LocationFilter() {
   const [locationList, setLocationList] = useState([]);
@@ -10,7 +10,7 @@ export default function LocationFilter() {
 
   const fetchLocationList = async () => {
     try {
-      const res = await axios.get('/api/v1/cityProvince');
+      const res = await axiosInstance.get('/api/v1/cityProvince');
       setLocationList(res.data);
     } catch (err) {
       console.log(err);

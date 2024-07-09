@@ -3,8 +3,8 @@ import styles from "./index.styles.module.css";
 import AnimalContents from "./_components/AnimalContents/AnimalContents";
 import AnimalHeader from "./_components/AnimalHeader/AnimalHeader";
 import ShelterContents from "./_components/ShelterContents/ShelterContents";
-import axios from "axios";
 import { useParams } from "react-router-dom";
+import axiosInstance from "../../apis/axiosInstance";
 
 export default function AnimalDetails() {
   const { id } = useParams();
@@ -16,7 +16,7 @@ export default function AnimalDetails() {
 
   const fetchAnimalDetails = async () => {
     try {
-      const res = await axios.get(`/api/v1/animals/${id}`);
+      const res = await axiosInstance.get(`/api/v1/animals/${id}`);
       setAnimalDetails(res.data);
     } catch (err) {
       console.log(err);

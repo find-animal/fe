@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styles from ".//ChangePwd.styles.module.css";
 import Button from "../../../components/Button";
 import Toast from "../../../components/Toast";
 import InputBox from "../../../components/InputBox";
-import axios from "axios";
 import BackIconHeader from "../../../components/BackIconHeader";
+import axiosInstance from "../../../apis/axiosInstance";
 
 export default function ChangePwd() {
   const id = localStorage.getItem("id");
@@ -18,12 +18,14 @@ export default function ChangePwd() {
 
   const getEmail = async () => {
     try {
-      const res = await axios.get("/api/v1/user/email", {params: {id}});
+      const res = await axiosInstance.get("/api/v1/user/email", {
+        params: { id },
+      });
       setEmail(res.data.email);
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   useEffect(() => {
     getEmail();
@@ -47,21 +49,21 @@ export default function ChangePwd() {
     }
 
     try {
-      await axios.patch("/api/v1/user/password", {
+      await axiosInstance.patch("/api/v1/user/password", {
         id,
         password,
         email,
       });
       setToast("비밀번호가 성공적으로 변경되었습니다.");
     } catch (err) {
-      if(err.code === 9001) {
-        setError('이메일 형식을 맞춰주세요.');
+      if (err.code === 9001) {
+        setError("이메일 형식을 맞춰주세요.");
       }
       console.log(err);
     }
   };
 
-  const isDisabled = !(password);
+  const isDisabled = !password;
 
   return (
     <div className={styles.container}>
@@ -88,7 +90,7 @@ export default function ChangePwd() {
           </button>
         </div>
         <p className={styles.warning}>{error}</p>
-        <Button text={"확인"} type="submit" disabled={isDisabled}/>
+        <Button text={"확인"} type="submit" disabled={isDisabled} />
       </form>
       {toast && <Toast toast={toast} setToast={setToast} />}
     </div>
