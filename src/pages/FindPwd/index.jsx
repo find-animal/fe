@@ -99,10 +99,11 @@ export default function FindPwd() {
     }
 
     try {
-      await axios.patch("/api/v1/user/password", {
+      await axios.patch("/api/v1/user/anonymous/password", {
         id,
         password,
         email,
+        code: emailCode,
       });
       setToast("비밀번호가 성공적으로 변경되었습니다.");
       setTimeout(() => navigate("/login"), 1000);

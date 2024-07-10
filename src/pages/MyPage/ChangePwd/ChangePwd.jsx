@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from ".//ChangePwd.styles.module.css";
 import Button from "../../../components/Button";
 import Toast from "../../../components/Toast";
@@ -8,28 +8,12 @@ import axiosInstance from "../../../apis/axiosInstance";
 
 export default function ChangePwd() {
   const id = localStorage.getItem("id");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordType, setPasswordType] = useState("");
 
   const [toast, setToast] = useState("");
   const [error, setError] = useState("");
-
-  const getEmail = async () => {
-    try {
-      const res = await axiosInstance.get("/api/v1/user/email", {
-        params: { id },
-      });
-      setEmail(res.data.email);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    getEmail();
-  }, []);
 
   const handleShow = (e) => {
     e.preventDefault();
@@ -52,13 +36,9 @@ export default function ChangePwd() {
       await axiosInstance.patch("/api/v1/user/password", {
         id,
         password,
-        email,
       });
       setToast("비밀번호가 성공적으로 변경되었습니다.");
     } catch (err) {
-      if (err.code === 9001) {
-        setError("이메일 형식을 맞춰주세요.");
-      }
       console.log(err);
     }
   };
