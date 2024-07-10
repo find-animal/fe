@@ -1,0 +1,39 @@
+.container {
+}
+
+.contents_container {
+    padding: 0 16px 0 16px;
+}
+
+.header {
+    display: flex;
+    margin-bottom: 16px;
+    text-align: center;
+    align-items: center;
+}
+.header p {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight);
+    flex: 1;
+}
+
+.input_container {
+    display: flex;
+    position: relative;
+}
+
+.button {
+    position: absolute;
+    top: 25%;
+    right: 8px;
+    background-color: transparent;
+    border: none;
+    font-size: var(--font-size-md);
+    color: var(--color-accent);
+}
+
+.warning {
+    color: red;
+    margin: -4px 0 20px 0;
+    font-size: var(--font-size-sm);
+}

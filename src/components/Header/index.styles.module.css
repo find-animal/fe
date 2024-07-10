@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+  display: flex;
+  padding: 68px 0 24px 0;
+  justify-content: center;
+  position: relative;
+}
+.header > p {
+  font-weight: var(--font-weight);
+  font-size: var(--font-size-xl);
+}
+.image {
+  width: 26px;
+  height: 28px;
+  position:absolute;
+  right: 24px;
+}

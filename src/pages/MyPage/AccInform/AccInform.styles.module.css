@@ -1,0 +1,6 @@
+.contents {
+    padding: 0 32px 30px 32px;
+}
+.contents > h3:nth-of-type(2) {
+    margin-top: 12px;
+}

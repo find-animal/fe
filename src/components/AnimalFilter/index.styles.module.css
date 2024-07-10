@@ -1,0 +1,26 @@
+.container {
+  width: calc(100% - 48px);
+  height: 450px;
+  position: absolute;
+  bottom: 100%;
+  border-top: 1px solid var(--color-accent);
+  background-color: var(--color-white);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  transition: 0.3s ease-in-out;
+}
+
+.bottom_container {
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.bottom_container > p {
+  color: var(--color-accent);
+  cursor: pointer;
+}

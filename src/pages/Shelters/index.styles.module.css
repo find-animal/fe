@@ -1,0 +1,23 @@
+.container {
+    height: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+.subheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 16px 16px 16px;
+}
+.subheader > p {
+    color: var(--color-accent);
+    font-size: 18px;
+    font-weight: var(--font-weight);
+    cursor: pointer;
+}
+
+.shelters_container {
+    overflow-y: auto;
+    padding: 0 16px 0 16px;
+}

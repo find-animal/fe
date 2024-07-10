@@ -1,0 +1,20 @@
+.label {
+  font-weight: var(--font-weight);
+}
+
+.option_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 6px 0 16px 0;
+}
+
+.option {
+  width: 50px;
+  border-radius: 15px;
+  border: 1px solid var(--color-accent);
+  text-align: center;
+  padding: 4px 12px 4px 8px;
+  color: var(--color-gray);
+  cursor: pointer;
+}

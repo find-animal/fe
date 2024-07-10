@@ -1,0 +1,13 @@
+.contents_container {
+  padding: 83px 12px 0 12px;
+}
+
+.special_mark {
+  text-align: center;
+  font-weight: var(--font-weight);
+  margin: 0 12px 16px 12px;
+}
+
+.details_container {
+  padding: 6px;
+}

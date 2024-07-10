@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-lg);
+    margin-bottom: 42px;
+    padding: 68px 16px 0 16px;
+}
+
+.header p {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: var(--font-weight);
+}

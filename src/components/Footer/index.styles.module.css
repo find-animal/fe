@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+  padding: 16px 0 16px 0;
+  border-top: 1px solid var(--color-divider);
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--color-white);
+}
+
+.icon_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icon_container p {
+  font-size: 12px;
+  color: var(--color-gray);
+  justify-self: end;
+  margin-top: 6px;
+}

@@ -1,0 +1,20 @@
+.label {
+    font-weight: var(--font-weight);
+  }
+
+  .option_container {
+    width: calc(100% - 24px);
+    height: 150px;
+    border: 1px solid var(--color-accent);
+    margin-top: 6px;
+    padding: 12px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+  }
+
+  .option {
+    cursor: pointer;
+    color: var(--color-gray);
+  }

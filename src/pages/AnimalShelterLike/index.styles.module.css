@@ -1,0 +1,15 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.contents_container {
+    padding: 0 16px 0 16px;
+    overflow-y: auto;
+}
+
+.list_container > h3 {
+    margin-bottom: 16px;
+}

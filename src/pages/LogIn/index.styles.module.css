@@ -1,0 +1,27 @@
+.container {
+    padding: 68px 16px 88px 16px;
+}
+
+.title {
+    margin-bottom: 16px;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight);
+    text-align: center;
+}
+
+.warning {
+    font-size: var(--font-size-sm);
+    color: red;
+    margin: -4px 0 20px 0;
+}
+
+.link_container {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px;
+    color: var(--color-accent);
+}
+.link_container a {
+    text-decoration: none;
+    color: var(--color-accent);
+}

@@ -1,0 +1,22 @@
+.container {
+}
+
+.header_container > p {
+  font-size: 20px;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+.contents_container {
+  background-color: var(--color-white);
+  margin-top: 32px;
+  padding: 0 23px 40px 26px;
+}
+
+.logOut {
+  text-align: center;
+  color: var(--color-gray);
+  cursor: pointer;
+}
