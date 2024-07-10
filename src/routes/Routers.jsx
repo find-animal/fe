@@ -3,7 +3,6 @@ import React from "react";
 import MyPage from "../pages/MyPage";
 import ChangePwd from "../pages/MyPage/ChangePwd/ChangePwd";
 import Notice from "../pages/MyPage/Notice/Notice";
-import LogOut from "../pages/MyPage/LogOut/LogOut";
 import AccountDeletion from "../pages/MyPage/AccountDeletion/AccountDeletion";
 import TermOfService from "../pages/MyPage/TermsOfService/TermOfService";
 import Home from "../pages/Home";
@@ -42,7 +41,6 @@ export default function Routers() {
         <Route path="/mypage/notice" element={<Notice />} />
         <Route path="/mypage/account-deletion" element={<AccountDeletion />} />
         <Route path="/mypage/term-of-service" element={<TermOfService />} />
-        <Route path="/mypage/logout" element={<LogOut />} />
         <Route path="/*" element={<NotFound />} />
       </Route>
     </Routes>
