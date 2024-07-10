@@ -20,8 +20,8 @@ export default function Heart({
   const checkHeartStatus = async () => {
     const endPoint =
       type === "animal"
-        ? `/animals/favorite/${userId}`
-        : `/shelter/favorite/${userId}`;
+        ? `animals/favorite/${userId}`
+        : `shelter/favorite/${userId}`;
     try {
       const res = await axiosInstance.get(`/api/v1/${endPoint}`);
       const datas = res.data;
