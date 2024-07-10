@@ -1,7 +1,7 @@
 # 🐕 find-animal 🐈
 
 <div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/c4c6c29c-4e8f-48cf-917c-7eac4ae33c8f"/> 
+  <img src="https://github.com/find-animal/fe/assets/130431829/50119412-faa3-4980-97af-382a92f855ca"/> 
 </div>
 
 ## 📝목차
