@@ -22,20 +22,13 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   async (error) => {
-    const { status, data } = error.response;
-
-    if (status === 401) {
-      if (
-        data.message === "Invalid JWT Token" ||
-        data.message === "Expired JWT Token"
-      ) {
-        window.location.href = "/login";
-        localStorage.removeItem("token");
-      }
+    if (error.response.code === 30000) {
+      window.location.href = "/login";
+      localStorage.removeItem("token");
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 export default axiosInstance;
