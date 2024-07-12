@@ -10,8 +10,9 @@
 [1. 프로젝트 소개](#-1-프로젝트-소개)<br>
 [2. 개발 환경](#-2-개발-환경)<br>
 [3. 기능 설명](#-3-기능-설명)<br>
-[4. 주목할 만한 기능](#-4-주목할-만한-기능)<br>
-[5. 느낀점](#-5-느낀점)
+[4. 폴더 구조] (#-4-폴더-구조)<br>
+[5. 신경 쓴 부분](#-5-신경-쓴-부분)<br>
+[6. 느낀점 및 개선할 부분](#-6-느낀점-및-개선할-부분)
   
 <br>
 
@@ -152,8 +153,107 @@
 
 <br>
 
-## 4. 주목 할만한 기능
+## 4. 폴더 구조
+- apis 폴더: Recoil 상태 관리에 필요한 atoms.js 파일과 JWT 토큰 처리를 위한 axiosInstance.js 파일이 있습니다.
+- assets 폴더: 이미지 파일들이 있습니다.
+- components 폴더: 다양한 컴포넌트들이 있습니다. 각 컴포넌트 폴더에는 .jsx 파일과 styles.module.css 파일이 있으며, 아래 폴더 구조에서는 생략했습니다.
+- pages 폴더: 홈 화면, 동물 소식 화면 등 여러 화면들을 포함합니다. 각 페이지 폴더에는 .jsx 파일과 styles.module.css 파일이 있으며, 아래 폴더 구조에서는 생략했습니다.
+- _components 폴더: 특정 페이지에서만 사용하는 컴포넌트들을 모아두었습니다.
+- routes 폴더: 로그인 전과 후의 라우팅을 담당하는 js파일들이 있습니다.
+  
+📦.idea (생략) <br>
+📦node_module (생략) <br>
+📦public (생략) <br>
+📦src <br>
+ ┣ 📂apis <br>
+ ┃ ┣ 📜atoms.js <br>
+ ┃ ┗ 📜axiosInstance.js <br>
+ ┣ 📂assets (생략) <br>
+ ┣ 📂components <br>
+ ┃ ┣ 📂AnimalFilter <br>
+ ┃ ┃ ┣ 📂AdoptFilter <br>
+ ┃ ┃ ┣ 📂AgeFilter <br>
+ ┃ ┃ ┣ 📂LocationFilter <br>
+ ┃ ┃ ┣ 📂SexFilter <br>
+ ┃ ┣ 📂BackIconHeader <br>
+ ┃ ┣ 📂Button <br>
+ ┃ ┣ 📂Divider <br>
+ ┃ ┣ 📂Footer <br>
+ ┃ ┃ ┣ 📜icons.js <br>
+ ┃ ┣ 📂GoBackIcon <br>
+ ┃ ┣ 📂Header <br>
+ ┃ ┣ 📂Heart <br>
+ ┃ ┣ 📂InputBox <br>
+ ┃ ┣ 📂Layout <br>
+ ┃ ┣ 📂ShelterFilter <br>
+ ┃ ┣ 📂ShelterInfo <br>
+ ┣ 📂pages <br>
+ ┃ ┣ 📂AnimalDetails <br>
+ ┃ ┃ ┣ 📂_components <br>
+ ┃ ┃ ┃ ┣ 📂AnimalContents <br>
+ ┃ ┃ ┃ ┣ 📂AnimalHeader <br>
+ ┃ ┃ ┃ ┗ 📂ShelterContents <br>
+ ┃ ┣ 📂AnimalNews <br>
+ ┃ ┃ ┣ 📂_components <br>
+ ┃ ┣ 📂AnimalShelterLike <br>
+ ┃ ┃ ┣ 📂_components <br>
+ ┃ ┃ ┃ ┗ 📂AnimalLikeList <br>
+ ┃ ┣ 📂FindId <br>
+ ┃ ┣ 📂FindPwd <br>
+ ┃ ┣ 📂Home <br>
+ ┃ ┃ ┣ 📂_components <br>
+ ┃ ┃ ┃ ┗ 📂AnimalInfo <br>
+ ┃ ┣ 📂LogIn <br>
+ ┃ ┣ 📂MyPage <br>
+ ┃ ┃ ┣ 📂AccInform <br>
+ ┃ ┃ ┣ 📂AccountDeletion <br>
+ ┃ ┃ ┣ 📂ChangePwd <br>
+ ┃ ┃ ┣ 📂Notice <br>
+ ┃ ┃ ┣ 📂TermsOfService <br>
+ ┃ ┃ ┣ 📂_components <br>
+ ┃ ┃ ┃ ┗ 📂MyPageList <br>
+ ┃ ┣ 📂NotFound <br>
+ ┃ ┣ 📂ShelterDetails <br>
+ ┃ ┃ ┣ 📂_components <br>
+ ┃ ┃ ┃ ┣ 📂KaKaoMap <br>
+ ┃ ┣ 📂Shelters <br>
+ ┃ ┗ 📂SignUp <br>
+ ┣ 📂routes <br>
+ ┃ ┣ 📜PrivateRoute.jsx <br>
+ ┃ ┗ 📜Routers.jsx <br>
+ ┣ 📜App.css <br>
+ ┣ 📜App.js <br>
+ ┣ 📜App.test.js <br>
+ ┣ 📜index.css <br>
+ ┣ 📜index.js <br>
+ ┣ 📜logo.svg <br>
+ ┣ 📜reportWebVitals.js <br>
+ ┣ 📜service-worker.js <br>
+ ┣ 📜serviceWorkerRegistration.js <br>
+ ┣ 📜setupProxy-sample.js <br>
+ ┣ 📜setupProxy.js <br>
+ ┗ 📜setupTests.js <br>
+📜.env <br>
+📜.gitignore <br>
+📜package.json <br>
+📜Readme.md <br>
+📜yarn.lock <br>
+<br>
+
+## 5. 신경 쓴 부분
 
 <br>
 
-## 5. 느낀점
+## 6. 느낀점 및 개선할 부분
+1) 느낀점
+  - React로 투두 리스트나 간단한 사이트를 만드는 경험은 있었지만, 이렇게 하나의 웹이나 앱을 완성해본 것은 처음이라 많은 걱정이 있었습니다. 프로젝트를 시작하기 전에, 이론 공부를 통해 여러 작은 프로젝트를 만드는 것이 유익할 것이라고 생각했지만, 실제로 이렇게 하나의 큰 프로젝트를 다른 분들과 협업하며 진행하면서 전체적인 프로젝트의 흐름을 더 잘 이해할 수 있었습니다. <br>
+프로젝트를 진행하면서, 기능을 설계하고 구현하는 과정에서 예상치 못한 문제들을 해결해나가는 경험이 매우 값졌습니다. 특히, 팀원들과의 협업 과정에서 코드 리뷰를 통해 개선점을 찾고, 서로의 아이디어를 공유하며 더 나은 방향으로 나아가는 방법을 배울 수 있었습니다. 협업을 할 때의 커뮤니케이션 방법, 역할 분담, 코드 일관성 유지 등 신경 써야 할 부분들을 실감하며, 이러한 경험이 앞으로의 프로젝트에 큰 도움이 될 것이라 느꼈습니다.
+
+2) 개선할 부분
+- 기능명세서 작성 및 디자인 완료 후 구현: 피그마에서 디자인을 먼저 하고 바로 구현을 시작했지만, 이로 인해 나중에 수정사항이 많이 발생하여 비효율적이었습니다. 앞으로는 기능명세서를 명확히 작성하고, 디자인을 완전히 마친 후에 구현을 시작할 계획입니다.
+
+- padding과 margin 변수 처리: padding과 margin을 최대한 일관되게 적용하려 했지만, 여전히 아쉬운 부분이 남았습니다. 다음 프로젝트에서는 색상을 변수 처리한 것처럼, padding과 margin도 변수로 처리하여 일관성을 높일 계획입니다.
+
+- 컴포넌트화 및 폴더 구조: 코드를 컴포넌트화할지 여부와 폴더 구조를 어떻게 구성할지에 대한 고민이 많았습니다. 컴포넌트화하면 props가 많아지고, 컴포넌트화하지 않으면 코드가 길어지는 문제가 있었습니다. 다음 프로젝트에서는 컴포넌트화에 대해 더 깊이 공부하고, 폴더 구조도 더 효율적으로 개선할 계획입니다.
+
+- 함수명 및 변수명 통일: 함수명과 변수명을 최대한 일관되게 하려고 노력했지만, 일부 부족한 부분이 있었습니다. 앞으로는 함수명과 변수명을 더욱 일관되게 통일하여 코드 가독성을 높이도록 하겠습니다.
