@@ -1,7 +1,9 @@
 # 🐕 find-animal 🐈
 
 <div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/50119412-faa3-4980-97af-382a92f855ca"/> 
+  <img src="https://github.com/user-attachments/assets/05d7bde0-35d8-4eba-8040-7a6dbbe21a81"/> 
+  출처: canva <br>
+  * 리팩토링 단계에서 디자인이 조금씩 변할 수 있습니다.*
 </div>
 
 ## 📝목차
