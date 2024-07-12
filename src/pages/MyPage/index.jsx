@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./index.styles.module.css";
 import Header from "../../components/Header";
 import icon_account from "../../assets/icon_account.png";
@@ -8,7 +8,7 @@ import icon_cancel from "../../assets/icon_cancel.png";
 import icon_notice from "../../assets/icon_notice.png";
 import MyPageList from "./_components/MyPageList/MyPageList";
 import { useNavigate } from "react-router-dom";
-import Toast from "../../components/Toast";
+import {toast} from "react-toastify";
 
 export default function MyPage() {
   const id = localStorage.getItem("id");
@@ -21,11 +21,10 @@ export default function MyPage() {
   ];
 
   const navigate = useNavigate();
-  const [toast, setToast] = useState("");
 
   const handleClickLogOut = () => {
     localStorage.clear();
-    setToast("로그아웃 되었습니다.");
+    toast.error("로그아웃 되었습니다.");
     setTimeout(() => navigate("/login"), 1000);
   };
 
@@ -45,7 +44,6 @@ export default function MyPage() {
       <p className={styles.logOut} onClick={handleClickLogOut}>
         로그아웃
       </p>
-      {toast && <Toast toast={toast} setToast={setToast} />}
     </div>
   );
 }

@@ -40,6 +40,28 @@ body {
   font-family: "SUITE-Regular", serif;
 }
 
+.Toastify__toast {
+  width: 80% !important;
+  min-height: auto;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: "SUITE-Regular", serif !important;
+  text-align: center !important;
+  font-size: 18px !important;
+
+  color: var(--color-black) !important;
+  border-radius: 16px !important;
+}
+.Toastify__close-button {
+  display: none;
+}
+.Toastify__progress-bar {
+  animation: Toastify__trackProgress linear 2s !important;
+  transition: zoom;
+}
+
 ul,
 p,
 h3,

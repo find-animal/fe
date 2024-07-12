@@ -5,7 +5,7 @@ import InputBox from "../../components/InputBox";
 import Button from "../../components/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Toast from "../../components/Toast";
+import { toast } from "react-toastify";
 
 export default function FindPwd() {
   const navigate = useNavigate();
@@ -21,23 +21,19 @@ export default function FindPwd() {
   const [isEmailVerified, setIsEmailVerified] = useState(false);
   const [isEmailCodeVerified, setIsEmailCodeVerified] = useState(false);
 
-  const [toast, setToast] = useState("");
-  const [error, setError] = useState("");
-
   const handleIdCheck = async (e) => {
     e.preventDefault();
 
     if (id.length < 4) {
-      setError("아이디는 최소 4글자 이상이어야 합니다.");
+      toast.error("아이디는 최소 4글자 이상이어야 합니다.");
     } else {
       try {
         await axios.get("/api/v1/user/checkId", { params: { id } });
-        setError("존재하지 않는 아이디입니다.");
+        toast.error("존재하지 않는 아이디입니다.");
         setIsIdVerified(false);
       } catch (err) {
         if (err.response.data.code === 2001) {
-          setError("");
-          setToast("아이디가 확인되었습니다.");
+          toast.success("아이디가 확인되었습니다.");
           setIsIdVerified(true);
         } else {
           console.log(err);
@@ -51,11 +47,10 @@ export default function FindPwd() {
 
     try {
       await axios.post("/api/v1/send-mail/email", { email });
-      setToast("인증번호를 전송했습니다.");
-      setError("");
+      toast.success("인증번호를 전송했습니다.");
       setIsEmailVerified(true);
     } catch (err) {
-      setError("이메일 형식을 확인해주세요.");
+      toast.error("이메일 형식을 확인해주세요.");
       setIsEmailVerified(false);
       console.log(err);
     }
@@ -71,11 +66,10 @@ export default function FindPwd() {
           code: emailCode,
         },
       });
-      setError("");
-      setToast("이메일 인증 완료되었습니다.");
+      toast.success("이메일 인증 완료되었습니다.");
       setIsEmailCodeVerified(true);
     } catch (err) {
-      setError("인증코드를 확인해주세요.");
+      toast.error("인증코드를 확인해주세요.");
       setIsEmailCodeVerified(false);
       console.log(err);
     }
@@ -91,10 +85,12 @@ export default function FindPwd() {
     e.preventDefault();
 
     if (!/(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\W)(?=\S+$).{8,16}/.test(password)) {
-      setError("비밀번호는 8~16자 영문 대소문자, 숫자, 특수문자를 사용하세요.");
+      toast.error(
+        "비밀번호는 8~16자 영문 대소문자, 숫자, 특수문자를 사용하세요.",
+      );
       return;
     } else if (password !== confirmPassword) {
-      setError("비밀번호가 일치하지 않습니다.");
+      toast.error("비밀번호가 일치하지 않습니다.");
       return;
     }
 
@@ -105,11 +101,11 @@ export default function FindPwd() {
         email,
         code: emailCode,
       });
-      setToast("비밀번호가 성공적으로 변경되었습니다.");
-      setTimeout(() => navigate("/login"), 1000);
+      toast.success("비밀번호가 성공적으로 변경되었습니다.");
+      navigate("/login");
     } catch (err) {
       if (err.code === 2002) {
-        setError("존재하지 않는 아이디입니다.");
+        toast.error("존재하지 않는 아이디입니다.");
       }
       console.log(err);
     }
@@ -169,10 +165,8 @@ export default function FindPwd() {
             보기
           </button>
         </div>
-        <p className={styles.warning}>{error}</p>
         <Button text={"확인"} type="submit" disabled={isButtonDisabled} />
       </form>
-      {toast && <Toast toast={toast} setToast={setToast} bottom={"5%"} />}
     </div>
   );
 }

@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import styles from ".//ChangePwd.styles.module.css";
 import Button from "../../../components/Button";
-import Toast from "../../../components/Toast";
 import InputBox from "../../../components/InputBox";
 import BackIconHeader from "../../../components/BackIconHeader";
 import axiosInstance from "../../../apis/axiosInstance";
+import {toast} from "react-toastify";
 
 export default function ChangePwd() {
   const id = localStorage.getItem("id");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordType, setPasswordType] = useState("");
-
-  const [toast, setToast] = useState("");
-  const [error, setError] = useState("");
 
   const handleShow = (e) => {
     e.preventDefault();
@@ -25,10 +22,10 @@ export default function ChangePwd() {
     e.preventDefault();
 
     if (!/(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\W)(?=\S+$).{8,16}/.test(password)) {
-      setError("비밀번호는 8~16자 영문 대소문자, 숫자, 특수문자를 사용하세요.");
+      toast.error("비밀번호는 8~16자 영문 대소문자, 숫자, 특수문자를 사용하세요.");
       return;
     } else if (password !== confirmPassword) {
-      setError("비밀번호가 일치하지 않습니다.");
+      toast.error("비밀번호가 일치하지 않습니다.");
       return;
     }
 
@@ -37,7 +34,7 @@ export default function ChangePwd() {
         id,
         password,
       });
-      setToast("비밀번호가 성공적으로 변경되었습니다.");
+      toast.success("비밀번호가 성공적으로 변경되었습니다.");
     } catch (err) {
       console.log(err);
     }
@@ -69,10 +66,8 @@ export default function ChangePwd() {
             보기
           </button>
         </div>
-        <p className={styles.warning}>{error}</p>
         <Button text={"확인"} type="submit" disabled={isDisabled} />
       </form>
-      {toast && <Toast toast={toast} setToast={setToast} />}
     </div>
   );
 }

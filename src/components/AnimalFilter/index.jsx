@@ -23,7 +23,6 @@ export default function AnimalFilter({ onApplyFilter, isOpenFilter }) {
     useRecoilState(locationFilterState);
   const [adoptFilter, setAdoptFilter] = useRecoilState(adoptFilterState);
   const [params, setParams] = useRecoilState(animalParamsState);
-  const token = localStorage.getItem("token");
 
   const handleApplyFilters = async () => {
     const newParams = { ...params };
