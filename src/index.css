@@ -5,6 +5,7 @@
   --color-black: #000000;
   --color-gray: #979C9E;
   --color-divider: #e8e8e8;
+  --color-red: #ff0000;
 
   /* size */
   --font-size-sm: 14px;
@@ -41,7 +42,7 @@ body {
 }
 
 .Toastify__toast {
-  width: 80% !important;
+  width: 350px !important;
   min-height: auto;
   top: 50px;
   left: 50%;
@@ -59,7 +60,6 @@ body {
 }
 .Toastify__progress-bar {
   animation: Toastify__trackProgress linear 2s !important;
-  transition: zoom;
 }
 
 ul,

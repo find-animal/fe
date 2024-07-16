@@ -28,8 +28,8 @@ export default function AnimalHeader({ animalId, image }) {
       </div>
 
       {isModal && (
-        <div className={styles.modal} onClick={handleCloseModal}>
-          <img className={styles.modal_img} src={image} />
+        <div className={styles.modal_background} onClick={handleCloseModal}>
+          <img className={styles.modal_img} src={image} alt={'동물 이미지'}/>
         </div>
       )}
     </>
