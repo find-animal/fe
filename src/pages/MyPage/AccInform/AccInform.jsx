@@ -9,7 +9,7 @@ export default function AccInform() {
 
   const getEmail = async () => {
     try {
-      const res = await axiosInstance.get("/api/v1/user/email");
+      const res = await axiosInstance.get(`/api/v1/user/email?id=${id}`);
       setEmail(res.data.email);
     } catch (err) {
       console.log(err);
