@@ -15,7 +15,7 @@ export default function AnimalNews() {
     try {
       const res = await axiosInstance.get(`/api/v1/news/animal?start=${page}`);
       setAnimalNewsList([...animalNewsList, ...res.data.items]);
-      setPage(prev => prev + 1);
+      setPage(prev => prev + 10);
       setIsLoading(false);
     } catch (err) {
       console.log(err);
