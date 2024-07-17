@@ -10,7 +10,7 @@ export default function ChangePwd() {
   const id = localStorage.getItem("id");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordType, setPasswordType] = useState("");
+  const [passwordType, setPasswordType] = useState("password");
 
   const handleShow = (e) => {
     e.preventDefault();

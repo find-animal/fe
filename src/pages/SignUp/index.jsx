@@ -14,7 +14,7 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordType, setPasswordType] = useState("");
+  const [passwordType, setPasswordType] = useState("password");
   const [emailCode, setEmailCode] = useState("");
 
   const [isIdVerified, setIsIdVerified] = useState(false);
