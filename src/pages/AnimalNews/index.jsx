@@ -33,9 +33,9 @@ export default function AnimalNews() {
       <div className={styles.contents_container}>
         <div>
           {isLoading && <p>Loading...</p>}
-          {animalNewsList.map((list) => {
+          {animalNewsList.map((list, index) => {
             return (
-              <div ref={ref}>
+              <div ref={ref} key={index}>
                 <AnimalNewsList list={list}/>
               </div>
             );
