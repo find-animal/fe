@@ -38,11 +38,7 @@ export default function Shelters() {
   };
 
   useEffect(() => {
-    fetchShelterData();
-  }, []);
-
-  useEffect(() => {
-    if (inView) {
+    if (page === 0 || inView) {
       fetchShelterData();
     }
   }, [inView]);
