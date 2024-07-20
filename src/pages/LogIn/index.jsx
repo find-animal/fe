@@ -5,14 +5,16 @@ import { Link, useNavigate } from "react-router-dom";
 import InputBox from "../../components/InputBox";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 export default function LogIn() {
   const navigate = useNavigate();
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogIn = () => {
+  const handleLogIn = (e) => {
+    e.preventDefault();
+
     try {
       axios
         .post("/api/v1/user/login", {
@@ -46,17 +48,15 @@ export default function LogIn() {
   return (
     <div className={styles.container}>
       <p className={styles.title}>로그인</p>
-      <InputBox type={"text"} text={"아이디"} onInputChange={setId} />
-      <InputBox
-        type={"password"}
-        text={"비밀번호"}
-        onInputChange={setPassword}
-      />
-      <Button
-        text={"로그인"}
-        onClick={handleLogIn}
-        disabled={isButtonDisabled}
-      />
+      <form onSubmit={handleLogIn}>
+        <InputBox type={"text"} text={"아이디"} onInputChange={setId} />
+        <InputBox
+          type={"password"}
+          text={"비밀번호"}
+          onInputChange={setPassword}
+        />
+        <Button text={"로그인"} type={"submit"} disabled={isButtonDisabled} />
+      </form>
       <div className={styles.link_container}>
         <p>
           <Link to={"/signup"}>회원가입</Link>

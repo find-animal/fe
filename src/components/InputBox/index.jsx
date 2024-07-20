@@ -12,6 +12,7 @@ export default function InputBox({ type, text, onInputChange }) {
         type={type}
         placeholder={text}
         onChange={handleChange}
+        autoComplete="off"
       />
     </div>
   );

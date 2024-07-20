@@ -9,7 +9,8 @@ export default function SignOut({ setIsModal }) {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSignOut = async () => {
+  const handleSignOut = async (event) => {
+    event.preventDefault();
     try {
       await axiosInstance.delete("/api/v1/user/signout", {
         data: { id, password },
@@ -34,15 +35,18 @@ export default function SignOut({ setIsModal }) {
           탈퇴 시 회원님의 관심목록 데이터가 모두 삭제됩니다. 탈퇴하시려면
           비밀번호를 입력해주세요.
         </h4>
-        <input
-          placeholder={"비밀번호 입력"}
-          type={"password"}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div className={styles.button_container}>
-          <button onClick={handleSignOut}>탈퇴</button>
-          <button onClick={() => setIsModal(false)}>취소</button>
-        </div>
+        <form onSubmit={handleSignOut}>
+          <input
+            placeholder={"비밀번호 입력"}
+            type={"password"}
+            autoComplete="off"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className={styles.button_container}>
+            <button type="submit">탈퇴</button>
+            <button type="button" onClick={() => setIsModal(false)}>취소</button>
+          </div>
+        </form>
       </div>
     </div>
   );
