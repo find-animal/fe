@@ -63,7 +63,7 @@ export default function FindId() {
   const isButtonDisabled = !(isEmailVerified && isEmailCodeVerified);
 
   return (
-    <div className={styles.container}>
+    <div>
       <BackIconHeader text={"아이디 찾기"} />
       <form className={styles.contents_container} onSubmit={handleFindId}>
         <div className={styles.input_container}>

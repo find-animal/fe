@@ -1,4 +1,3 @@
-// AnimalFilter.js
 import React from "react";
 import styles from "./index.styles.module.css";
 import Button from "../Button";

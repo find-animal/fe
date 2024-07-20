@@ -31,7 +31,7 @@ export default function AnimalNews() {
     <div className={styles.container}>
       <Header title={"동물 소식"}/>
       <div className={styles.contents_container}>
-        <div className={styles.news_container}>
+        <div>
           {isLoading && <p>Loading...</p>}
           {animalNewsList.map((list) => {
             return (
