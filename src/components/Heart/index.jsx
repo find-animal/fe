@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.styles.module.css";
-import Toast from "../Toast";
 
 import icon_heart from "../../assets/icon_heart.png";
 import icon_heart_like from "../../assets/icon_heart_like.png";
 import axiosInstance from "../../apis/axiosInstance";
+import {toast} from "react-toastify";
 
 export default function Heart({
   id,
@@ -15,7 +15,6 @@ export default function Heart({
 }) {
   const userId = localStorage.getItem("userId");
   const [heartImg, setHeartImg] = useState(icon_heart);
-  const [toast, setToast] = useState("");
 
   const checkHeartStatus = async () => {
     const endPoint =
@@ -48,7 +47,7 @@ export default function Heart({
         .post(`/api/v1/user/${type}`, payload)
         .then(() => {
           setHeartImg(icon_heart_like);
-          setToast("관심목록에 추가되었습니다.");
+          toast.success("관심목록에 추가되었습니다.");
         })
         .catch((err) => console.log(err));
     } else {
@@ -58,7 +57,7 @@ export default function Heart({
         })
         .then(() => {
           setHeartImg(icon_heart);
-          setToast("관심목록에서 삭제되었습니다.");
+          toast.error("관심목록에서 삭제되었습니다.");
           setUpdate((prev) => !prev);
         })
         .catch((err) => console.log(err));
@@ -78,7 +77,6 @@ export default function Heart({
         alt={"heart"}
         onClick={handleClick}
       />
-      {toast && <Toast toast={toast} setToast={setToast} />}
     </div>
   );
 }

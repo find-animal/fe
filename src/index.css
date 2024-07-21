@@ -5,6 +5,7 @@
   --color-black: #000000;
   --color-gray: #979C9E;
   --color-divider: #e8e8e8;
+  --color-red: #ff0000;
 
   /* size */
   --font-size-sm: 14px;
@@ -38,6 +39,27 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: "SUITE-Regular", serif;
+}
+
+.Toastify__toast {
+  width: 350px !important;
+  min-height: auto;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: "SUITE-Regular", serif !important;
+  text-align: center !important;
+  font-size: 18px !important;
+
+  color: var(--color-black) !important;
+  border-radius: 16px !important;
+}
+.Toastify__close-button {
+  display: none;
+}
+.Toastify__progress-bar {
+  animation: Toastify__trackProgress linear 2s !important;
 }
 
 ul,

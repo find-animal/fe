@@ -5,14 +5,12 @@ import BackIconHeader from "../../components/BackIconHeader";
 import Heart from "../../components/Heart";
 import Divider from "../../components/Divider";
 import KakaoMap from "./_components/KakaoMap";
-import Toast from "../../components/Toast";
 import axiosInstance from "../../apis/axiosInstance";
+import {toast} from "react-toastify";
 
 export default function ShelterDetails() {
   const { id } = useParams();
   const [shelterDetails, setShelterDetails] = useState(null);
-  const [toast, setToast] = useState("");
-  const token = localStorage.getItem("token");
 
   const fetchShelterDetails = async () => {
     try {
@@ -35,7 +33,7 @@ export default function ShelterDetails() {
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText(careAddr);
-    setToast("주소가 복사되었습니다.");
+    toast.success("주소가 복사되었습니다.");
   };
 
   return (
@@ -61,7 +59,6 @@ export default function ShelterDetails() {
         </div>
         {careAddr && <KakaoMap careAddr={shelterDetails.careAddr} />}
       </div>
-      {toast && <Toast toast={toast} setToast={setToast} />}
     </div>
   );
 }

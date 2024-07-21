@@ -4,6 +4,7 @@ import { useRecoilState } from "recoil";
 import { shelterFilterState } from "../../apis/atoms";
 import Button from "../Button";
 import { axiosInstance } from "../../apis/axiosInstance";
+import {toast} from "react-toastify";
 
 export default function ShelterFilter({ onApplyFilter, isOpenFilter }) {
   const [locationList, setLocationList] = useState([]);
@@ -52,6 +53,9 @@ export default function ShelterFilter({ onApplyFilter, isOpenFilter }) {
       });
       onApplyFilter(res.data.content);
     } catch (err) {
+      if(err.response.data.code === 9002) {
+        toast.error("검색결과가 없습니다.")
+      }
       console.error(err);
     }
   };

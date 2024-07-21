@@ -1,4 +1,3 @@
-// AnimalFilter.js
 import React from "react";
 import styles from "./index.styles.module.css";
 import Button from "../Button";
@@ -15,6 +14,7 @@ import {
   animalParamsState,
 } from "../../apis/atoms";
 import axiosInstance from "../../apis/axiosInstance";
+import {toast} from "react-toastify";
 
 export default function AnimalFilter({ onApplyFilter, isOpenFilter }) {
   const [sexFilter, setSexFilter] = useRecoilState(sexFilterState);
@@ -23,7 +23,6 @@ export default function AnimalFilter({ onApplyFilter, isOpenFilter }) {
     useRecoilState(locationFilterState);
   const [adoptFilter, setAdoptFilter] = useRecoilState(adoptFilterState);
   const [params, setParams] = useRecoilState(animalParamsState);
-  const token = localStorage.getItem("token");
 
   const handleApplyFilters = async () => {
     const newParams = { ...params };
@@ -58,6 +57,9 @@ export default function AnimalFilter({ onApplyFilter, isOpenFilter }) {
       onApplyFilter(res.data.content, newParams);
       setParams(newParams);
     } catch (err) {
+      if(err.response.data.code === 9002) {
+        toast.error("검색결과가 없습니다.")
+      }
       console.error(err);
     }
   };

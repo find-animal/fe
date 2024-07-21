@@ -3,17 +3,22 @@ import icon_shelter_clicked from "../../../../assets/icon_shelter_clicked.png";
 import styles from "./ShelterContents.styles.module.css";
 import icon_call from "../../../../assets/icon_call.png";
 
-export default function ShelterContents({ shelterTel, shelterNm, shelterAddr, managerTel }) {
+export default function ShelterContents({
+  shelterTel,
+  shelterNm,
+  shelterAddr,
+  managerTel,
+}) {
   const handleShelterCall = () => {
-      window.location.href = `tel:${shelterTel}`;
-  }
+    window.location.href = `tel:${shelterTel}`;
+  };
   return (
     <div className={styles.container}>
-      <img src={icon_shelter_clicked} />
+      <img src={icon_shelter_clicked} alt={"보호소"} />
       <div>
         <div className={styles.title}>
           <p>보호소 정보</p>
-          <img src={icon_call} onClick={handleShelterCall}/>
+          <img src={icon_call} onClick={handleShelterCall} alt={"전화"} />
         </div>
         <div className={styles.contents}>
           <p>

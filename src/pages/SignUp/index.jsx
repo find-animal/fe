@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import styles from "./index.styles.module.css";
 import Button from "../../components/Button";
-import GoBackIcon from "../../components/GoBackIcon";
 import InputBox from "../../components/InputBox";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Toast from "../../components/Toast";
 import BackIconHeader from "../../components/BackIconHeader";
+import {toast} from "react-toastify";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -15,30 +14,26 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordType, setPasswordType] = useState("");
+  const [passwordType, setPasswordType] = useState("password");
   const [emailCode, setEmailCode] = useState("");
 
   const [isIdVerified, setIsIdVerified] = useState(false);
   const [isEmailVerified, setIsEmailVerified] = useState(false);
   const [isEmailCodeVerified, setIsEmailCodeVerified] = useState(false);
 
-  const [toast, setToast] = useState("");
-  const [error, setError] = useState("");
-
   const handleIdCheck = async (e) => {
     e.preventDefault();
 
     if (id.length < 4) {
-      setError("아이디는 최소 4글자 이상이어야 합니다.");
+      toast.error("아이디는 최소 4글자 이상이어야 합니다.");
     } else {
       try {
         await axios.get("/api/v1/user/checkId", { params: { id } });
-        setError("");
-        setToast("사용가능한 아이디 입니다.");
+        toast.success("사용가능한 아이디 입니다.");
         setIsIdVerified(true);
       } catch (err) {
         if (err.response.data.code === 2001) {
-          setError("이미 사용중인 아이디 입니다.");
+          toast.error("이미 사용중인 아이디 입니다.");
           setIsIdVerified(false);
         } else {
           console.log(err);
@@ -52,11 +47,10 @@ export default function SignUp() {
 
     try {
       await axios.post("/api/v1/send-mail/email", { email });
-      setToast("인증번호를 전송했습니다.");
-      setError("");
+      toast.success("인증번호를 전송했습니다.");
       setIsEmailVerified(true);
     } catch (err) {
-      setError("이메일 형식을 확인해주세요.");
+      toast.error("이메일 형식을 확인해주세요.");
       setIsEmailVerified(false);
       console.log(err);
     }
@@ -72,11 +66,10 @@ export default function SignUp() {
           code: emailCode,
         },
       });
-      setError("");
-      setToast("이메일 인증 완료되었습니다.");
+      toast.success("이메일 인증 완료되었습니다.");
       setIsEmailCodeVerified(true);
     } catch (err) {
-      setError("인증코드를 확인해주세요.");
+      toast.error("인증코드를 확인해주세요.");
       setIsEmailCodeVerified(false);
       console.log(err);
     }
@@ -86,10 +79,10 @@ export default function SignUp() {
     e.preventDefault();
 
     if (!/(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\W)(?=\S+$).{8,16}/.test(password)) {
-      setError("비밀번호는 8~16자 영문 대소문자, 숫자, 특수문자를 사용하세요.");
+      toast.error("비밀번호는 8~16자 영문 대소문자, 숫자, 특수문자를 사용하세요.");
       return;
     } else if (password !== confirmPassword) {
-      setError("비밀번호가 일치하지 않습니다.");
+      toast.error("비밀번호가 일치하지 않습니다.");
       return;
     }
 
@@ -100,11 +93,11 @@ export default function SignUp() {
         email,
         code: emailCode,
       });
-      setToast("회원가입 성공");
-      setTimeout(() => navigate("/login"), 1000);
+      toast.success("회원가입 성공했습니다.");
+      navigate("/login");
     } catch (err) {
       if (err.response.data.code === 2006) {
-        setError("이미 사용중인 이메일입니다.");
+        toast.error("이미 사용중인 이메일입니다.");
       }
       console.log(err);
     }
@@ -170,10 +163,8 @@ export default function SignUp() {
             보기
           </button>
         </div>
-        <p className={styles.warning}>{error}</p>
         <Button text="확인" type="submit" disabled={isButtonDisabled} />
       </form>
-      {toast && <Toast toast={toast} setToast={setToast} bottom={"5%"} />}
     </div>
   );
 }

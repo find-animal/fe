@@ -47,7 +47,7 @@ export default function Home() {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.header}>
+        <div>
           <Header title={"find-animal"} />
             <button className={styles.button} onClick={handleOpenFilter}>
               Filter

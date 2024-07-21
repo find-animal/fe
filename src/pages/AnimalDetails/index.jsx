@@ -10,10 +10,6 @@ export default function AnimalDetails() {
   const { id } = useParams();
   const [animalDetails, setAnimalDetails] = useState(null);
 
-  useEffect(() => {
-    fetchAnimalDetails();
-  }, []);
-
   const fetchAnimalDetails = async () => {
     try {
       const res = await axiosInstance.get(`/api/v1/animals/${id}`);
@@ -22,6 +18,10 @@ export default function AnimalDetails() {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    fetchAnimalDetails();
+  }, []);
 
   if (!animalDetails) {
     return <p style={{ textAlign: "center" }}>Loading...</p>;

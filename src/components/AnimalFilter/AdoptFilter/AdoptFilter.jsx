@@ -7,7 +7,7 @@ export default function AdoptFilter() {
   const [selected, setSelected] = useRecoilState(adoptFilterState);
 
   return (
-    <div className={styles.container}>
+    <div>
       <label className={styles.label} htmlFor="adoptCheck">
         입양가능
       </label>

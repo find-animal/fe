@@ -12,16 +12,18 @@ export default function Footer() {
   return (
     <div className={styles.container}>
       {icons.map((icon, index) => (
-        <Link to={icon.link}>
-          <div className={styles.icon_container} key={index}>
-            <img
-              src={clickedIcon === index ? icon.clicked_src : icon.src}
-              alt={icon.alt}
-              onClick={() => handleIconClick(index)}
-            />
-            <p>{icon.text}</p>
-          </div>
-        </Link>
+        <div key={index}>
+          <Link to={icon.link}>
+            <div className={styles.icon_container}>
+              <img
+                src={clickedIcon === index ? icon.clicked_src : icon.src}
+                alt={icon.alt}
+                onClick={() => handleIconClick(index)}
+              />
+              <p>{icon.text}</p>
+            </div>
+          </Link>
+        </div>
       ))}
     </div>
   );

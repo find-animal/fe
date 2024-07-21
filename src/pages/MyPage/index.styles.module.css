@@ -16,7 +16,18 @@
 }
 
 .logOut {
+  width: 60px;
   text-align: center;
   color: var(--color-gray);
   cursor: pointer;
+  margin: 0 auto;
+}
+
+.signOut {
+  width: 60px;
+  text-align: center;
+  color: var(--color-red);
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 24px;
 }

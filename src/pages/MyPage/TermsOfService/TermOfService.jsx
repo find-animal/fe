@@ -7,16 +7,55 @@ export default function TermOfService() {
     <div className={styles.container}>
       <BackIconHeader text={"이용약관"} />
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius laborum
-        recusandae maxime earum dolore eligendi culpa! Sapiente fugiat nihil ab
-        cumque commodi. Dolores officiis est quibusdam expedita iste asperiores
-        explicabo. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Voluptate, illum eveniet cum, quam animi delectus minus architecto
-        voluptatum illo consequatur id fugiat debitis in obcaecati perspiciatis
-        deserunt, mollitia porro quas. Lorem ipsum dolor sit, amet consectetur
-        adipisicing elit. Quam fuga autem rerum nemo quis, laboriosam sapiente
-        molestias voluptas at aliquid vero id impedit? Quas, at saepe minus
-        alias vel beatae?
+        <strong>제1조 (목적)</strong><br />
+        본 약관은 귀하(이하 "이용자")가 당사의 유기동물 관련 애플리케이션(이하 "애플리케이션")을 이용함에 있어, 애플리케이션의 이용조건 및 절차, 이용자와 당사의 권리, 의무 및 책임사항을 규정하는 것을 목적으로 합니다.
+      </p>
+      <p>
+        <strong>제2조 (용어의 정의)</strong><br />
+        "애플리케이션"이란 공공데이터 API를 이용하여 유기동물 관련 정보를 제공하는 프로그램을 의미합니다.<br />
+        "이용자"란 본 약관에 따라 애플리케이션을 이용하는 자를 의미합니다.
+      </p>
+      <p>
+        <strong>제3조 (이용약관의 효력 및 변경)</strong><br />
+        본 약관은 애플리케이션을 실행함과 동시에 효력이 발생합니다.<br />
+        당사는 필요하다고 인정되는 경우 본 약관을 변경할 수 있으며, 변경된 약관은 애플리케이션 내에 게시함으로써 효력이 발생합니다. 이용자는 변경된 약관에 동의하지 않을 경우 애플리케이션 이용을 중단할 수 있습니다.
+      </p>
+      <p>
+        <strong>제4조 (이용자의 의무)</strong><br />
+        이용자는 애플리케이션을 불법적인 목적으로 이용해서는 안 됩니다.<br />
+        이용자는 애플리케이션의 정상적인 운영을 방해하는 행위를 해서는 안 됩니다.<br />
+        이용자는 공공데이터 API의 이용약관을 준수하여야 합니다.
+      </p>
+      <p>
+        <strong>제5조 (개인정보의 보호)</strong><br />
+        당사는 이용자의 개인정보를 보호하기 위해 노력합니다.<br />
+        이용자는 개인정보 보호와 관련된 법령을 준수하여야 합니다.
+      </p>
+      <p>
+        <strong>제6조 (서비스의 제공 및 중단)</strong><br />
+        애플리케이션은 공공데이터 API를 기반으로 유기동물 관련 정보를 제공합니다.<br />
+        당사는 애플리케이션의 서비스 제공을 일시적으로 중단할 수 있으며, 이 경우 사전에 이용자에게 공지합니다.
+      </p>
+      <p>
+        <strong>제7조 (면책조항)</strong><br />
+        당사는 애플리케이션에 제공되는 정보의 정확성, 신뢰성에 대해 보증하지 않으며, 이로 인해 발생하는 모든 책임은 이용자에게 있습니다.<br />
+        당사는 이용자가 애플리케이션을 이용함으로써 발생하는 직간접적인 손해에 대해 책임을 지지 않습니다.
+      </p>
+      <p>
+        <strong>제8조 (지적재산권)</strong><br />
+        애플리케이션과 관련된 모든 지적재산권은 당사에 귀속됩니다.
+      </p>
+      <p>
+        <strong>제9조 (준거법 및 관할)</strong><br />
+        본 약관은 대한민국 법령에 따르며, 본 약관과 관련된 분쟁은 대한민국 법원을 관할 법원으로 합니다.
+      </p>
+      <p>
+        <strong>제10조 (문의)</strong><br />
+        애플리케이션과 관련된 문의사항은 다음의 연락처로 문의해 주시기 바랍니다.<br />
+        이메일: [sjmim@naver.com]
+      </p>
+      <p>
+        본 약관은 2024년 7월 18일부터 적용됩니다.
       </p>
     </div>
   );
