@@ -10,9 +10,8 @@
 [1. 프로젝트 소개](#-1-프로젝트-소개)<br>
 [2. 개발 환경](#-2-개발-환경)<br>
 [3. 기능 설명](#-3-기능-설명)<br>
-[4. 폴더 구조] (#-4-폴더-구조)<br>
-[5. 신경 쓴 부분](#-5-신경-쓴-부분)<br>
-[6. 느낀점 및 개선할 부분](#-6-느낀점-및-개선할-부분)
+[4. 폴더 구조](#-4-폴더-구조)<br>
+[5. 느낀점 및 개선할 부분](#-5-느낀점-및-개선할-부분)
   
 <br>
 
@@ -47,33 +46,26 @@
 - 사용자가 잘못된 아이디나 비밀번호를 입력하면, 오류 메시지를 표시하여 올바른 정보를 다시 입력하도록 안내합니다.
 
 <div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/923ed6c1-e569-4738-a106-17d5c00f1498" height="800px"/>     
-  <img src="https://github.com/find-animal/fe/assets/130431829/4c5b0847-063d-4a70-97cc-f00f836e99ce" height="800px"/>
+  <img src="https://github.com/user-attachments/assets/43125339-26f3-413f-9526-644a840d69ca" height="600px"/>     
 </div>
 
 ### 2) 회원가입
 - 회원가입 버튼은 아이디 중복확인과 이메일 인증이 완료된 후에만 활성화됩니다.
 - 아이디 중복확인 후, 이미 사용 중인 아이디일 경우 "이미 사용중인 아이디입니다"라는 오류 메시지를 표시합니다. 중복확인이 완료되어 사용 가능한 아이디일 경우에는 토스트 메시지로 "사용 가능한 아이디입니다"를 띄웁니다.
-
-<div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/b9cbbbea-e3df-4ca8-8442-f8c6423c26e6" height="800px"/>     
-  <img src="https://github.com/find-animal/fe/assets/130431829/a978999e-d96c-4510-8ba0-80bf284aa669" height="800px"/>
-</div>
-
 - 이메일을 입력하고 이메일 인증을 요청하면, 인증번호를 입력할 수 있는 입력 창이 표시됩니다. 사용자는 입력한 메일로 발송된 인증번호를 입력하여 이메일을 인증할 수 있습니다.
 - 비밀번호 보기 기능을 사용하면 숨겨진 비밀번호를 확인할 수 있습니다. 비밀번호가 지정된 형식에 맞지 않으면 사용자에게 오류 메시지를 표시하여 올바른 형식을 입력하도록 안내합니다.
-  
+
 <div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/07cae847-335d-4aff-baea-939c82e33c62" height="800px"/>     
-  <img src="https://github.com/find-animal/fe/assets/130431829/f06d0018-3d5b-46e2-8ae6-a3f20e0a8453" height="800px"/>
+  <img src="https://github.com/user-attachments/assets/c9c0b03c-bab5-407e-82cc-ff2eee44762c" height="600px"/>
 </div>
+
+
 
 ### 3) 아이디 찾기
 - 사용자가 아이디를 잊었을 때, 가입 시 입력한 이메일로 인증하여 아이디를 찾을 수 있습니다.
   
 <div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/d2886438-c289-4672-816c-8d2f9835fd6e" height="800px"/>     
-  <img src="https://github.com/find-animal/fe/assets/130431829/7e2cc4cf-e206-4c79-9ba7-449fea2b3485" height="800px"/>
+  <img src="https://github.com/user-attachments/assets/dfd92025-4ba2-4b29-9aeb-fde393bc3550" height="600px"/>   
 </div>
 
 ### 4) 비밀번호 찾기
@@ -81,26 +73,18 @@
 - 기타 로직은 회원가입과 유사합니다.
     
 <div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/d45589e5-929a-4b6f-ba9f-14c04401b2a1" height="800px"/>
+  <img src="https://github.com/user-attachments/assets/64338b16-ac42-45cc-8d21-5e35aa15e84d" height="600px"/>
 </div>
 
 ### 5) 메인(유기동물 정보)
 - 사용자가 앱을 실행했을 때, 로그인 정보가 있는 경우 메인 페이지가 자동으로 열립니다. 메인 페이지에는 유기동물 API에서 받아온 데이터가 무한 스크롤 방식으로 표시됩니다.
 - 관심보호소 등록 버튼을 클릭하면, 보호소 찾기 페이지로 이동합니다.
-- Filter 버튼을 클릭하면, 필터 옵션을 설정할 수 있는 창이 나타납니다.
-    
-<div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/776da6d3-7acc-4e52-94ca-9641e3a86bd4" height="800px"/>     
-  <img src="https://github.com/find-animal/fe/assets/130431829/61660c5b-d1cc-4368-a9ee-96075d6466b6" height="800px"/>
-</div>
 
 - 성별, 위치, 보호 지역, 입양 가능 여부에 따라 유기동물을 필터링할 수 있습니다.
-- 필터 옵션을 선택한 후 확인 버튼을 클릭하면, 선택한 옵션에 맞춰 필터링된 유기동물 리스트가 표시됩니다.
 - 필터 옵션은 Recoil을 이용하여 전역 변수로 저장되어, 필터 창을 다시 열었을 때 이전에 선택한 옵션이 유지됩니다.
     
 <div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/f098c3ea-1d53-4027-afc8-9095a32540d6" height="800px"/>     
-  <img src="https://github.com/find-animal/fe/assets/130431829/a309f767-42b4-47ce-958e-e5ffc8985dc2" height="800px"/>
+  <img src="https://github.com/user-attachments/assets/2745b7e7-78df-4063-9ce6-3feec2ecdde1" height="600px"/>     
 </div>
 
 ### 6) 유기동물 상세정보
@@ -111,8 +95,7 @@
 - 전화 아이콘을 클릭하면 바로 해당 보호소로 전화를 걸 수 있습니다.
       
 <div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/f96e690b-bcb3-40d3-883e-303a778583cf" height="800px"/>     
-  <img src="https://github.com/find-animal/fe/assets/130431829/fac718de-fa57-4b16-89a2-8458b661be9f" height="800px"/>     
+  <img src="https://github.com/user-attachments/assets/b35081f4-19bc-4d0e-8473-c31657f1c8dd" height="600px"/>     
 </div>
 
 ### 7) 동물 소식
@@ -120,7 +103,7 @@
 - 사용자가 뉴스를 클릭하면 해당 뉴스의 상세 정보가 새 창으로 열립니다.
       
 <div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/c2b75ec6-d749-4e23-8508-463e53e08221" height="800px"/>     
+  <img src="https://github.com/user-attachments/assets/a589ea1f-7398-4706-8be6-936182d6f627" height="600px"/>     
 </div>
 
 ### 8) 보호소 찾기 + 보호소 상세정보
@@ -131,8 +114,7 @@
 - 주소복사 버튼을 클릭하면 해당 주소가 클립보드에 복사됩니다.
         
 <div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/7c85a7d9-5afe-4170-95f2-8dc47164129d" height="800px"/>     
-  <img src="https://github.com/find-animal/fe/assets/130431829/c2efa264-51a3-4937-9f74-26ed300e8df8" height="800px"/>    
+  <img src="https://github.com/user-attachments/assets/12a9e60d-8ded-4eb3-863c-4a0ce836df61" height="600px"/>     
 </div>
 
 ### 9) 관심 목록
@@ -140,7 +122,7 @@
 - 관심 목록 페이지에서는 각 항목 옆에 있는 하트 아이콘을 클릭하여 바로 해당 리스트를 삭제할 수 있습니다.
           
 <div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/cea84346-7e94-437e-bf39-e50bdb884124" height="800px"/>   
+  <img src="https://github.com/user-attachments/assets/20147cf5-6326-4145-af96-09e5781a2fd5" height="600px"/>   
 </div>
 
 ### 10) 마이페이지
@@ -148,12 +130,12 @@
 - 로그아웃 버튼을 클릭하면 사용자가 로그아웃되고, localStorage에 저장된 로그인 정보가 삭제됩니다. 이후 로그인 페이지로 자동 이동합니다.
           
 <div align="center">
-  <img src="https://github.com/find-animal/fe/assets/130431829/0dae91df-ebf7-4e59-8e2c-9cc5cd6126b2" height="800px"/>   
+  <img src="https://github.com/user-attachments/assets/d62b7658-6ef4-426a-94ac-d99310107d0d" height="600px"/>   
 </div>
 
 <br>
 
-## 4. 폴더 구조
+## 📦 4. 폴더 구조
 - apis 폴더: Recoil 상태 관리에 필요한 atoms.js 파일과 JWT 토큰 처리를 위한 axiosInstance.js 파일이 있습니다.
 - assets 폴더: 이미지 파일들이 있습니다.
 - components 폴더: 다양한 컴포넌트들이 있습니다. 각 컴포넌트 폴더에는 .jsx 파일과 styles.module.css 파일이 있으며, 아래 폴더 구조에서는 생략했습니다.
@@ -240,16 +222,12 @@
 📜yarn.lock <br>
 <br>
 
-## 5. 신경 쓴 부분
-
-<br>
-
-## 6. 느낀점 및 개선할 부분
-1) 느낀점
+## 💡 5. 느낀점 및 개선할 부분
+### 1) 느낀점
   - React로 투두 리스트나 간단한 사이트를 만드는 경험은 있었지만, 이렇게 하나의 웹이나 앱을 완성해본 것은 처음이라 많은 걱정이 있었습니다. 프로젝트를 시작하기 전에, 이론 공부를 통해 여러 작은 프로젝트를 만드는 것이 유익할 것이라고 생각했지만, 실제로 이렇게 하나의 큰 프로젝트를 다른 분들과 협업하며 진행하면서 전체적인 프로젝트의 흐름을 더 잘 이해할 수 있었습니다. <br>
 프로젝트를 진행하면서, 기능을 설계하고 구현하는 과정에서 예상치 못한 문제들을 해결해나가는 경험이 매우 값졌습니다. 특히, 팀원들과의 협업 과정에서 코드 리뷰를 통해 개선점을 찾고, 서로의 아이디어를 공유하며 더 나은 방향으로 나아가는 방법을 배울 수 있었습니다. 협업을 할 때의 커뮤니케이션 방법, 역할 분담, 코드 일관성 유지 등 신경 써야 할 부분들을 실감하며, 이러한 경험이 앞으로의 프로젝트에 큰 도움이 될 것이라 느꼈습니다.
 
-2) 개선할 부분
+### 2) 개선할 부분
 - 기능명세서 작성 및 디자인 완료 후 구현: 피그마에서 디자인을 먼저 하고 바로 구현을 시작했지만, 이로 인해 나중에 수정사항이 많이 발생하여 비효율적이었습니다. 앞으로는 기능명세서를 명확히 작성하고, 디자인을 완전히 마친 후에 구현을 시작할 계획입니다.
 
 - padding과 margin 변수 처리: padding과 margin을 최대한 일관되게 적용하려 했지만, 여전히 아쉬운 부분이 남았습니다. 다음 프로젝트에서는 색상을 변수 처리한 것처럼, padding과 margin도 변수로 처리하여 일관성을 높일 계획입니다.
